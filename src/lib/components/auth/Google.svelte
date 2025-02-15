@@ -4,6 +4,7 @@
     import { loginUser } from '../../auth';
 
     let isLoading = false;
+    const API_URL = import.meta.env.VITE_DJANGO_API_URL;
   
     // Replace with your actual Google Client ID
     const GOOGLE_CLIENT_ID = '684068205517-02gagr6b4ptn2u7sfsgtmgrqcejc02m2.apps.googleusercontent.com';
@@ -13,7 +14,7 @@
   
     async function verifyGoogleToken(token) {
       try {
-        const response = await fetch('http://localhost:8000/api/auth/continue/', {
+        const response = await fetch(`${API_URL}/api/auth/continue/`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
