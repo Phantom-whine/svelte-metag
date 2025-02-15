@@ -66,8 +66,8 @@
             </a>
         </div>
     </div>
-    <div class="bg-zinc-900 text-white rounded-xl p-2 min-h-screen">
-        <div class="h-full flex items-center justify-center text-gray-400 p-4">
+    <div class="bg-zinc-900 text-white rounded-xl p-1 md:p-2 min-h-screen">
+        <div class="h-full flex items-center justify-center text-gray-400 p-1 md:p-4">
         {#if post}
             <LinkedinCard content={post.content} id={post.id}/>
         {:else}

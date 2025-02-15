@@ -332,7 +332,7 @@
                             >
                             <button
                                 onclick={(openModal = !openModal)}
-                                class="flot-b flex items-center gap-2 bg-[#ccfc7e] active:scale-95 transition text-black px-4 py-2 rounded-lg"
+                                class="text-sm flot-b flex items-center gap-2 bg-[#ccfc7e] active:scale-95 transition text-black px-2 py-1 md:px-4 md:py-2 rounded-lg"
                             >
                                 <svg
                                     xmlns="http://www.w3.org/2000/svg"

@@ -184,47 +184,50 @@
         </button>
 
         <!-- Engagement Section -->
-        <div class="pt-4 border-t border-gray-800">
-            <div
-                class="flex items-center justify-between text-sm text-gray-400"
-            >
-                <div class="flex items-center gap-1">
-                    <div class="flex space-x-2 items-center">
-                        <div class="flex items-center space-x-2 bg-white/10 backdrop-blur-sm rounded-full p-1.5 shadow-sm">
-                            <!-- Like Button -->
-                            <!-- svelte-ignore a11y_consider_explicit_label -->
-                            <button class="p-1.5 bg-blue-500/90 hover:bg-blue-600 rounded-full shadow-md transition-all duration-200 ease-out hover:scale-105 transform">
-                                <svg
-                                    xmlns="http://www.w3.org/2000/svg"
-                                    class="h-5 w-5 text-white"
-                                    viewBox="0 0 24 24"
-                                    fill="currentColor"
-                                >
-                                    <path
-                                        d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"
-                                    />
-                                </svg>
-                            </button>
-                    
-                            <!-- Heart Button -->
-                            <button class="p-2 bg-red-500/90 hover:bg-red-600 rounded-full shadow-md transition-all duration-200 ease-out hover:scale-105 transform">
-                                <span class="text-white text-sm">❤️</span>
-                            </button>
-                    
-                            <!-- Target Button -->
-                            <button class="p-2 bg-yellow-500/90 hover:bg-yellow-600 rounded-full shadow-md transition-all duration-200 ease-out hover:scale-105 transform">
-                                <span class="text-white text-sm">🎯</span>
-                            </button>
-                        </div>
-                    </div>
-                    <span>{rand_text} and 326 others</span>
-                </div>
-                <div class="flex items-center gap-4">
-                    <span>655 comments</span>
-                    <span>20k likes</span>
-                </div>
+       <!-- Engagement Section -->
+<div class="pt-4 border-t border-gray-800">
+    <div class="flex flex-col gap-4 md:flex-row md:items-center md:justify-between text-sm text-gray-400">
+        <!-- Left Section -->
+        <div class="flex flex-wrap items-center gap-2">
+            <!-- Buttons Container -->
+            <div class="flex items-center bg-white/10 backdrop-blur-sm rounded-full p-1 shadow-sm space-x-1">
+                <!-- Like Button -->
+                <!-- svelte-ignore a11y_consider_explicit_label -->
+                <button class="p-1 md:p-1.5 bg-blue-500/90 hover:bg-blue-600 rounded-full shadow-md transition-all duration-200 ease-out hover:scale-105 transform active:scale-95">
+                    <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        class="h-4 w-4 md:h-5 md:w-5 text-white"
+                        viewBox="0 0 24 24"
+                        fill="currentColor"
+                    >
+                        <path
+                            d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"
+                        />
+                    </svg>
+                </button>
+                
+                <!-- Heart Button -->
+                <button class="p-1 md:p-1.5 bg-red-500/90 hover:bg-red-600 rounded-full shadow-md transition-all duration-200 ease-out hover:scale-105 transform active:scale-95">
+                    <span class="text-white text-xs md:text-sm">❤️</span>
+                </button>
+                
+                <!-- Target Button -->
+                <button class="p-1 md:p-1.5 bg-yellow-500/90 hover:bg-yellow-600 rounded-full shadow-md transition-all duration-200 ease-out hover:scale-105 transform active:scale-95">
+                    <span class="text-white text-xs md:text-sm">🎯</span>
+                </button>
             </div>
+            
+            <!-- Text Section -->
+            <span class="text-xs md:text-sm">{rand_text} and 326 others</span>
         </div>
+
+        <!-- Right Section -->
+        <div class="flex items-center gap-2 md:gap-4 text-xs md:text-sm">
+            <span>655 comments</span>
+            <span>20k likes</span>
+        </div>
+    </div>
+</div>
     </div>
 </div>
 

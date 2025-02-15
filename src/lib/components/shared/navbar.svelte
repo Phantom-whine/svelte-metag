@@ -77,7 +77,7 @@
                             <a href="#testimonials" class="px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/10 rounded-lg transition-colors">Testimonials</a>
                             <a href="#pricing" class="px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/10 rounded-lg transition-colors">Pricing</a>
                             <a href="#faq" class="px-4 py-2 text-sm text-gray-300 hover:text-white hover:bg-white/10 rounded-lg transition-colors">FAQ</a>
-                            <a href="#buy" class="mt-2 mx-4 inline-flex items-center justify-center rounded-lg bg-[#ccfc7e] px-4 py-2.5 text-sm font-medium text-black transition-all hover:opacity-90 active:scale-95">
+                            <a href="/login" class="mt-2 mx-4 inline-flex items-center justify-center rounded-lg bg-[#ccfc7e] px-4 py-2.5 text-sm font-medium text-black transition-all hover:opacity-90 active:scale-95">
                                 Get Started
                             </a>
                         </div>
