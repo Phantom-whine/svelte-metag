@@ -26,7 +26,7 @@
         <div class="flex items-center gap-3">
             <img src="/logo.png" alt="" class="w-9 h-9" />
             <span
-                class="text-xl font-semibold tracking-tight flot-b text-white "
+                class="text-xl font-semibold tracking-tight flot-b text-white hidden md:inline"
                 >Metag</span
             >
         </div>

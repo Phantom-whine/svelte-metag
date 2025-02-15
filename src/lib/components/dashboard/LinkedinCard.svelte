@@ -9,7 +9,7 @@
     let copied = $state(false);
     let expanded = $state(false); // New state for expand/collapse
     function pickRandom() {
-        return Math.random() < 0.5 ? "Paul Jessey" : "Paul Jeremiah";
+        return Math.random() < 0.5 ? "Paul Jessey" : "Paul Jerry";
     }
     let rand_text = $state(pickRandom());
 
@@ -218,11 +218,11 @@
             </div>
             
             <!-- Text Section -->
-            <span class="text-xs md:text-sm">{rand_text} and 326 others</span>
+            <span class="md:text-xs text-sm">{rand_text} and 326 others</span>
         </div>
 
         <!-- Right Section -->
-        <div class="flex items-center gap-2 md:gap-4 text-xs md:text-sm">
+        <div class="flex items-center gap-2 md:gap-4 text-xs md:text-sm hidden md:block">
             <span>655 comments</span>
             <span>20k likes</span>
         </div>
