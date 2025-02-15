@@ -263,7 +263,7 @@
                                             d="M12 6v6m0 0v6m0-6h6m-6 0H6"
                                         />
                                     </svg>
-                                    Text
+                                    <span class="hidden md:inline">Text</span>
                                 </div>
                             </button>
                             <button
@@ -281,7 +281,7 @@
                                             d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
                                         />
                                     </svg>
-                                    YouTube
+                                    <span class="hidden md:inline">Youtube</span>
                                 </div>
                             </button>
                             <button
@@ -303,7 +303,7 @@
                                             d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"
                                         />
                                     </svg>
-                                    URL
+                                    <span class="hidden md:inline">URL</span>
                                 </div>
                             </button>
                         </div>
@@ -348,7 +348,7 @@
                                         d="M15 3.75L21 8.25M21 8.25L15 12.75M21 8.25H9.75a6 6 0 00-6 6v5.25"
                                     />
                                 </svg>
-                                Get Viral Topics
+                                Get Ideas
                             </button>
                         </div>
                     {:else if activeTab === "youtube"}
@@ -457,12 +457,12 @@
 
                 <!-- Right Section - Output -->
                 <div
-                    class="bg-zinc-800 rounded-lg p-4 min-h-[500px] border border-zinc-700 relative"
+                    class="bg-zinc-800 rounded-lg p-1 md:p-4 min-h-[500px] border border-zinc-700 relative"
                 >
                     {#if result}
                         <button
                             onclick={regenerate}
-                            class="flot absolute top-0 right-0 bg-[#ccfc7e] active:scale-95 transition text-black font-bold py-2 px-4 rounded-md m-2 z-10"
+                            class="flot absolute top-0 right-0 bg-[#ccfc7e] active:scale-95 transition text-black font-bold py-2 px-2 md:px-4 rounded-md m-2 z-10"
                         >
                             <div class="flex items-center justify-center gap-2">
                                 {loading_gen ? "" : "Regenerate"}
@@ -491,7 +491,7 @@
                         </button>
                     {/if}
                     <div
-                        class="h-full flex items-center justify-center text-gray-400 p-4"
+                        class="h-full flex items-center justify-center text-gray-400 p-1 md:p-4"
                     >
                         {#if result}
                             <LinkedinCard
