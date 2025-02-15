@@ -20,7 +20,7 @@ function customStore() {
                 tempText: '',
             }));
         }
-    };
+    }
 }
 
 export const tempStore = customStore();

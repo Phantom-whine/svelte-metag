@@ -10,6 +10,7 @@
     import Cookies from 'js-cookie';
     import axios from 'axios';
     import { page } from "$app/stores";
+    import { tempStore } from "$lib/editor.js";
 
     function updateQueryParam(key, value) {
         // Get the current query parameters or create an empty one
