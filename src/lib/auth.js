@@ -2,7 +2,6 @@
 import Cookies from 'js-cookie';
 import axios from 'axios';
 import { goto } from '$app/navigation';
-import { jwtDecode } from 'jwt-decode';
 
 const API_URL = import.meta.env.VITE_DJANGO_API_URL;
 

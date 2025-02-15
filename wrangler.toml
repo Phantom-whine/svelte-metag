@@ -1,0 +1,8 @@
+# wrangler.toml
+name = "metag"
+main = "./.svelte-kit/cloudflare/_worker.js"  # Path to SvelteKit's generated worker
+compatibility_date = "2025-02-01"
+
+[site]
+bucket = "/.svelte-kit/cloudflare/"  # Your static assets directory
+entry-point = "/.svelte-kit/cloudflare/"  # Required for SSR + static hybrid
