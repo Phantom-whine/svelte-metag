@@ -29,13 +29,17 @@
 </script>
 
 <div class="relative">
-    <button
-        onclick={() => isOpen = !isOpen}
-        class="h-10 w-10 rounded-full bg-orange-500 flex items-center justify-center hover:bg-orange-600 transition-colors cursor-pointer focus:outline-none"
-    >
-        <!-- <span class="font-medium text-lg text-white">{username[0]}</span> -->
-         <img src={profile_url} alt="profile" class="w-full rounded-full">
-    </button>
+    <div class="relative inline-block">
+        <button
+            onclick={() => isOpen = !isOpen}
+            class="h-10 w-10 rounded-full bg-orange-500 flex items-center justify-center hover:bg-orange-600 transition-colors cursor-pointer focus:outline-none"
+        >
+            <img src={profile_url} alt="profile" class="w-full rounded-full">
+        </button>
+        <span class="absolute left-1/2 -translate-x-1/2 translate-y-2 bottom-0 bg-black text-white text-xs px-2 flot rounded-full whitespace-nowrap">
+            PRO
+        </span>
+    </div>
 
     {#if isOpen}
         <div
