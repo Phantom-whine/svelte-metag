@@ -266,7 +266,7 @@
                                     <span class="hidden md:inline">Text</span>
                                 </div>
                             </button>
-                            <button
+                            <!-- <button
                                 onclick={() => (activeTab = "youtube")}
                                 class:bg-zinc-700={activeTab === "youtube"}
                                 class="flex-1 py-1 px-4 rounded-md transition-colors"
@@ -283,7 +283,7 @@
                                     </svg>
                                     <span class="hidden md:inline">Youtube</span>
                                 </div>
-                            </button>
+                            </button> -->
                             <button
                                 onclick={() => (activeTab = "url")}
                                 class:bg-zinc-700={activeTab === "url"}
