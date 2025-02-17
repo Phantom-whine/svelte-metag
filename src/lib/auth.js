@@ -10,15 +10,16 @@ export const isLoggedIn = () => !!Cookies.get('access');
 export const getAccessToken = () => Cookies.get('access') || '';
 export const getRefreshToken = () => Cookies.get('refresh') || '';
 export const setTokens = (access, refresh) => {
+  console.log('saved')
   Cookies.set('access', access, { 
     path: '/', 
-    sameSite: 'Lax',
+    sameSite: 'Strict',
     expires: new Date(Date.now() + 15 * 60 * 1000)
   });
 
   Cookies.set('refresh', refresh, {
     path: '/',
-    sameSite: 'Lax',
+    sameSite: 'Strict',
     expires: new Date(Date.now() + 7 * 24 * 60 * 60 * 1000)
   });
 };

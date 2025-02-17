@@ -23,7 +23,7 @@
                         <h3 class="font-semibold text-sm text-gray-500 mb-4">SOURCE</h3>
                         <div class="space-y-3">
                             <div class="bg-red-100 p-4 rounded-xl">
-                                <div class="text-red-600 font-medium mb-1">YouTube Video</div>
+                                <div class="text-red-600 font-medium mb-1">Article</div>
                                 <div class="w-full h-1 bg-red-200 rounded">
                                     <div class="w-2/3 h-1 bg-red-500 rounded"></div>
                                 </div>
