@@ -247,7 +247,7 @@
                             <button
                                 onclick={() => (activeTab = "text")}
                                 class:bg-zinc-700={activeTab === "text"}
-                                class="flex-1 py-1 px-4 rounded-md transition-colors"
+                                class="flex-1 py-2 px-4 rounded-md transition-colors"
                             >
                                 <div class="flex items-center justify-center">
                                     <svg
@@ -287,7 +287,7 @@
                             <button
                                 onclick={() => (activeTab = "url")}
                                 class:bg-zinc-700={activeTab === "url"}
-                                class="flex-1 py-1 px-4 rounded-md transition-colors"
+                                class="flex-1 py-2 px-4 rounded-md transition-colors"
                             >
                                 <div class="flex items-center justify-center">
                                     <svg
