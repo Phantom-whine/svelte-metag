@@ -462,7 +462,7 @@
                     {#if result}
                         <button
                             onclick={regenerate}
-                            class="flot absolute top-0 right-0 bg-[#ccfc7e] active:scale-95 transition text-black font-bold py-2 px-2 md:px-4 rounded-md m-2 z-10"
+                            class="flot absolute top-0 right-0 bg-[#ccfc7e] active:scale-95 transition text-black font-bold py-1 px-2 md:px-2 md:py-1 rounded-md m-2 z-10"
                         >
                             <div class="flex items-center justify-center gap-2">
                                 {loading_gen ? "" : "Regenerate"}

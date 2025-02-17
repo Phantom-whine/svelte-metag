@@ -33,4 +33,6 @@ body{
 *{
     scroll-behavior: smooth;
     scroll-snap-type: proximity;
+    caret-shape: underscore;
+    caret-color: #ccfc7e;
 }

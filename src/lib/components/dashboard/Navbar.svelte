@@ -75,30 +75,47 @@
                         </div>
 
                         <!-- svelte-ignore element_invalid_self_closing_tag -->
-                        <textarea
-                            bind:value={ctaText}
-                            class="w-full p-3 rounded-lg bg-zinc-800/90 border border-zinc-700 text-white placeholder-zinc-500
-                   focus:outline-none focus:ring-2 focus:ring-[#ccfc7e]/90 focus:border-[#ccfc7e]/50
-                   transition-all duration-200 resize-none"
-                            rows="4"
-                            placeholder="Enter your call to action..."
-                        />
+                        <div class="relative">
+                            <textarea
+                                bind:value={ctaText}
+                                class="w-full p-3 rounded-lg bg-zinc-800/90 border border-zinc-700 text-white placeholder-zinc-500
+                                       focus:outline-none focus:ring-2 focus:ring-[#ccfc7e]/90 focus:border-[#ccfc7e]/50
+                                       transition-all duration-200 resize-none pr-8"
+                                rows="4"
+                                placeholder="Enter your call to action..."
+                            />
+                            <!-- svelte-ignore a11y_consider_explicit_label -->
+                            <button class="absolute bottom-2 right-1 flex items-center justify-center p-1.5 
+                                           bg-black/30 backdrop-blur-sm rounded-md border border-white/10
+                                           hover:bg-black/40 hover:border-white/20 transition-all duration-200
+                                           hover:scale-105 group text-white">
+                                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" 
+                                     stroke="currentColor" class="w-3 h-3 text-white/60 group-hover:text-white/80">
+                                    <path stroke-linecap="round" stroke-linejoin="round" 
+                                          d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.5l-.394-.933a2.25 2.25 0 00-1.423-1.423L13.5 18.5l.933-.394a2.25 2.25 0 001.423-1.423l.394-.933.394.933a2.25 2.25 0 001.423 1.423l.933.394-.933.394a2.25 2.25 0 00-1.423 1.423z" />
+                                </svg>
+                            </button>
+                        </div>
 
-                        <div class="flex justify-end space-x-4">
+                        <div class="flex justify-end space-x-2">
                             <button
-                                onclick={() => (showMenu = false)}
-                                class="px-5 py-2 rounded-lg font-medium text-white bg-red-600/90 hover:bg-red-600
-                       transition-colors duration-150 active:scale-[0.98] flot"
-                            >
-                                Cancel
-                            </button>
-                            <button
-                                onclick={saveCTA}
-                                class="px-5 py-2 rounded-lg font-medium bg-[#ccfc7e] hover:bg-[#c2f06e] text-gray-900
-                       transition-all duration-150 active:scale-[0.98] flot"
-                            >
-                                Save Changes
-                            </button>
+                            onclick={() => (showMenu = false)}
+                            class="px-4 py-1 rounded-lg font-medium text-white bg-red-600 hover:bg-red-700 
+                                   focus:outline-none focus:ring-2 focus:ring-red-600 focus:ring-opacity-50
+                                   transition-colors duration-150 active:scale-[0.98] shadow-md hover:shadow-lg flot"
+                        >
+                            Cancel
+                        </button>
+                        
+                        <button
+                            onclick={saveCTA}
+                            class="px-4 py-1 rounded-lg font-medium bg-[#ccfc7e] hover:bg-[#a9e242] text-gray-900
+                                   focus:outline-none focus:ring-2 focus:ring-[#ccfc7e] focus:ring-opacity-50 
+                                   transition-all duration-150 active:scale-[0.98] shadow-md hover:shadow-lg flot"
+                        >
+                            Save Changes
+                        </button>
+                        
                         </div>
                     </div>
                 </div>

@@ -275,13 +275,12 @@
 
         <div class="flex items-center justify-between p-1">
             <div
-                class="flot flex items-center gap-2 px-2 py-2 bg-gradient-to-br from-gray-800 to-gray-900 border border-gray-700 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105 cursor-default group"
+                class="flot flex items-center gap-2 px-1 py-1 bg-gradient-to-br from-gray-800 to-gray-900 backdrop-blur-sm border border-gray-700 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105 cursor-default group"
             >
-                <span class="text-gray-300 text-sm font-medium">Characters</span
-                >
+                <span class="text-gray-300 text-sm font-medium">Characters</span>
                 <div class="w-px h-5 bg-gray-600"></div>
                 <span
-                    class="text-white font-semibold font-mono text-sm bg-gray-700 px-2 py-1 rounded-md"
+                    class="text-white font-semibold font-mono text-sm px-2 py-1 rounded-md {count > 2000 ? 'bg-red-600' : 'bg-green-600'}"
                 >
                     {count}
                 </span>

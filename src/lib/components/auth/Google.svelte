@@ -13,7 +13,7 @@
   
     async function verifyGoogleToken(token) {
       try {
-        const API_URL = 'https://metag-do18.onrender.com';
+        const API_URL = 'http://localhost:8000';
         const response = await fetch(`${API_URL}/api/auth/continue/`, {
           method: 'POST',
           headers: {
