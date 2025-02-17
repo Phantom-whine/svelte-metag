@@ -8,6 +8,7 @@
     import axios from "axios";
     import { page } from '$app/stores';
     import { derived } from 'svelte/store';
+    import { browser } from "$app/environment";
 
     let { data } = $props();
     let msg = $state();
@@ -16,6 +17,7 @@
     let original = $state($tempStore.tempText);
     let loading = $state(false);
     let ai_prompt = $state();
+    const API_URL = import.meta.env.VITE_DJANGO_API_URL;
 
     const postId = $page.url.searchParams.get("post_id");
     console.log(postId)
@@ -33,9 +35,21 @@
     let value = $state($tempStore.tempText);
     let count = $state();
 
-    onMount(() => {
+    onMount(async () => {
         count = value.length;
         profile = Cookies.get("profile");
+        if(postId && !value){
+            try {
+                const res = await axios.get(`${API_URL}/api/posts/${postId}`, {headers: {
+                    'Authorization': `Bearer ${Cookies.get('access')}`
+                }});
+                value = res.data.content;
+                editorArea.innerHTML = res.data.content;
+                triggerToast('success', 'Content Loaded')
+            } catch (error) {
+                triggerToast('error', error)
+            }
+        }
     });
 
     function observeEditor(node) {
@@ -63,7 +77,6 @@
         type = type_arg;
     }
 
-    const API_URL = import.meta.env.VITE_DJANGO_API_URL;
     const API_ENDPOINT = (id) => `${API_URL}/api/posts/edit/${id}/`;
 
     async function saveEdits(id, content) {
@@ -105,7 +118,9 @@
                 triggerToast("error", error);
             }
         } else {
-            await saveEdits(postId, editorArea.innerHTML.replace(/<!---->/g, ""));
+            if(browser){
+                await saveEdits(postId, editorArea.innerHTML.replace(/<!---->/g, ""));
+            }
         }
     });
 
