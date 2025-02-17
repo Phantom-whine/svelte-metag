@@ -6,6 +6,7 @@
             class="w-full h-full object-cover"
             loop
             autoplay
+            controls
         >
             <source src="/hero.mp4" type="video/mp4" />
             Your browser does not support the video tag.

@@ -7,7 +7,7 @@
 <div class="h-8"></div>
 <div class="max-w-6xl mx-auto grid gap-8 md:grid-cols-3 rounded-2xl px-4">
     <!-- Card 1 -->
-    <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-md transition-shadow duration-300 border border-gray-100">
+    <div class="bg-white cursor-default rounded-2xl p-8 shadow-lg hover:shadow-md transition-all duration-300 border border-gray-100 hover:scale-105">
         <div class="flex justify-between items-start mb-4">
             <div>
                 <h3 class="text-3xl font-extrabold text-gray-800 flot">Engage <br> Your Audience</h3>
@@ -20,7 +20,7 @@
     </div>
 
     <!-- Card 2 -->
-    <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-md transition-shadow duration-300 border border-gray-100">
+    <div class="bg-white cursor-default rounded-2xl p-8 shadow-lg hover:shadow-md transition-all hover:scale-105 duration-300 border border-gray-100">
         <div class="flex justify-between items-start mb-4">
             <div>
                 <h3 class="text-3xl font-extrabold text-gray-800 flot">Save Hours <br>Every Week </h3>
@@ -33,7 +33,7 @@
     </div>
 
     <!-- Card 3 -->
-    <div class="bg-white rounded-2xl p-8 shadow-lg hover:shadow-md transition-shadow duration-300 border border-gray-100">
+    <div class="bg-white cursor-default rounded-2xl p-8 shadow-lg hover:shadow-md transition-all hover:scale-105 duration-300 border border-gray-100">
         <div class="flex justify-between items-start mb-4">
             <div>
                 <h3 class="text-3xl font-extrabold text-gray-800 flot">Grow <br> Your Influence </h3>
