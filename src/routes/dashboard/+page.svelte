@@ -42,8 +42,7 @@
                     'Authorization': `Bearer ${Cookies.get('access')}`
                 }
             })
-            posts = response.data;
-            console.log(posts)
+            posts = response.data.results;
             open = false;
         } catch (error) {
             open = false;

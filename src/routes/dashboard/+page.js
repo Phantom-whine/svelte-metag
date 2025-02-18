@@ -5,8 +5,5 @@ import axios from 'axios';
 export function load({ parent }) {
     return parent().then(({ user }) => {
         if (!user) throw redirect(307, '/login');
-        
-        const access = Cookies.get('access');
-        console.log(`Access: ${access}`)
     });
 }

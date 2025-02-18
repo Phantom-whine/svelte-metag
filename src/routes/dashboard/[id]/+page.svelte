@@ -4,11 +4,21 @@
     import { onMount } from "svelte";
     import Cookies from 'js-cookie';
     import axios from 'axios';
+    import Toast from "$lib/components/shared/Toast.svelte";
+
     let { data } = $props();
     let { user } = data;
     let { id } = data;
+    
+    let msg = $state()
+    let type = $state()
 
     let post = $state();
+
+    function triggerToast(type_arg, msg_arg){
+        msg = msg_arg;
+        type = type_arg
+    }
 
     onMount(async ()=>{
         try {
@@ -18,9 +28,8 @@
                 }
             })
             post = response.data;
-            console.log(post)
         } catch (error) {
-            console.log(error)
+            triggerToast('error', 'Could not Load post');
         }
     })
     function removeTags(inputText) {
@@ -38,6 +47,9 @@
     })
 </script>
 <Navbar username={user.fullname}/>
+{#if msg}
+  <Toast bind:message={ msg } type={ type } />
+{/if}
 <svelte:head>
     {#if post}
         <title>Metag - {title}</title>

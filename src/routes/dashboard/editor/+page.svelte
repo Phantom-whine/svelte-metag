@@ -167,7 +167,7 @@
     <title>Metag - Editor</title>
 </svelte:head>
 <Navbar username={data.user.fullname} />
-<div class="max-w-7xl mx-auto py-4 mt-6">
+<div class="max-w-[95%] md:max-w-7xl mx-auto py-4 mt-6">
     <div class="flex items-center justify-end gap-4 flex-row-reverse">
         <!-- Header Text -->
         <h1 class="text-xl font-semibold text-white flot-b">Dashboard</h1>
@@ -196,7 +196,7 @@
         </a>
     </div>
 </div>
-<div class="grid lg:grid-cols-2 gap-6 max-w-7xl mx-auto mb-[50px]">
+<div class="grid lg:grid-cols-2 gap-4 max-w-[95%] md:max-w-7xl mx-auto mb-[50px]">
     <div class="bg-black p-2 w-full max-w-2xl mx-auto rounded-xl shadow-sm">
         <div
             class="flex items-center justify-between rounded-xl bg-[#262629] pr-2"
@@ -277,8 +277,8 @@
             <div
                 class="flot flex items-center gap-2 px-1 py-1 bg-gradient-to-br from-gray-800 to-gray-900 backdrop-blur-sm border border-gray-700 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105 cursor-default group"
             >
-                <span class="text-gray-300 text-sm font-medium">Characters</span>
-                <div class="w-px h-5 bg-gray-600"></div>
+                <span class="text-gray-300 text-sm font-medium hidden md:inline">Characters</span>
+                <div class="w-px h-5 bg-gray-600 hidden md:block"></div>
                 <span
                     class="text-white font-semibold font-mono text-sm px-2 py-1 rounded-md {count > 2000 ? 'bg-red-600' : 'bg-green-600'}"
                 >

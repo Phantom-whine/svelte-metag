@@ -6,7 +6,7 @@
     <section class="container flex flex-col items-center justify-center space-y-8 pt-32 text-center">
         <h1 class="max-w-6xl text-white text-4xl tracking-tight md:text-6xl lg:text-7xl flot">
             Write the posts you need
-            <span class="block text-muted-foreground">to grow on <span class="text-black bg-[#ccfc7e] rounded-md">LinkedIn.</span></span>
+            <span class="block text-muted-foreground">to grow on <span class="text-black bg-[#ccfc7e] rounded-md flot-b">LinkedIn.</span></span>
         </h1>
         
         <p class="max-w-[22rem] md:max-w-[42rem] leading-normal text-white sm:text-xl sm:leading-8">
