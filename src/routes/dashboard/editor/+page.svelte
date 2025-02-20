@@ -6,8 +6,8 @@
     import Cookies from "js-cookie";
     import { onDestroy, onMount } from "svelte";
     import axios from "axios";
-    import { page } from '$app/stores';
-    import { derived } from 'svelte/store';
+    import { page } from "$app/stores";
+    import { derived } from "svelte/store";
     import { browser } from "$app/environment";
 
     let { data } = $props();
@@ -33,20 +33,23 @@
     let editorArea;
     let value = $state($tempStore.tempText);
     let count = $state();
+    let saved = false;
 
     onMount(async () => {
         count = value.length;
         profile = Cookies.get("profile");
-        if(postId && !value){
+        if (postId && !value) {
             try {
-                const res = await axios.get(`${API_URL}/api/posts/${postId}`, {headers: {
-                    'Authorization': `Bearer ${Cookies.get('access')}`
-                }});
+                const res = await axios.get(`${API_URL}/api/posts/${postId}`, {
+                    headers: {
+                        Authorization: `Bearer ${Cookies.get("access")}`,
+                    },
+                });
                 value = res.data.content;
                 editorArea.innerHTML = res.data.content;
-                triggerToast('success', 'Content Loaded')
+                triggerToast("success", "Content Loaded");
             } catch (error) {
-                triggerToast('error', error)
+                triggerToast("error", error);
             }
         }
     });
@@ -85,8 +88,8 @@
                 { content },
                 {
                     headers: {
-                            Authorization: `Bearer ${Cookies.get("access")}`,
-                    }
+                        Authorization: `Bearer ${Cookies.get("access")}`,
+                    },
                 },
             );
             console.log("Edit saved successfully");
@@ -117,8 +120,11 @@
                 triggerToast("error", error);
             }
         } else {
-            if(browser){
-                await saveEdits(postId, editorArea.innerHTML.replace(/<!---->/g, ""));
+            if (browser) {
+                await saveEdits(
+                    postId,
+                    editorArea.innerHTML.replace(/<!---->/g, ""),
+                );
             }
         }
     });
@@ -130,6 +136,10 @@
         if (value.length < 20) {
             triggerToast("error", "Not enough context");
         } else {
+            if (!saved) {
+                original = editorArea.innerHTML;
+                saved = true;
+            }
             try {
                 loading = true;
                 const API_URL = import.meta.env.VITE_DJANGO_API_URL;
@@ -150,7 +160,7 @@
                 value = data.result;
                 editorArea.innerHTML = data.result;
                 loading = false;
-                ai_prompt = '';
+                ai_prompt = "";
             } catch (error) {
                 loading = false;
                 triggerToast("error", error);
@@ -195,7 +205,9 @@
         </a>
     </div>
 </div>
-<div class="grid lg:grid-cols-2 gap-4 max-w-[95%] md:max-w-7xl mx-auto mb-[50px]">
+<div
+    class="grid lg:grid-cols-2 gap-4 max-w-[95%] md:max-w-7xl mx-auto mb-[50px]"
+>
     <div class="bg-black p-2 w-full max-w-2xl mx-auto rounded-xl shadow-sm">
         <div
             class="flex items-center justify-between rounded-xl bg-[#262629] pr-2"
@@ -243,9 +255,9 @@
                         >
                             <div class="m-1">
                                 <button
-                                    onclick={()=>{
-                                        editorArea.innerHTML = original
-                                        value = original
+                                    onclick={() => {
+                                        editorArea.innerHTML = original;
+                                        value = original;
                                     }}
                                     class="flot block w-full px-2 py-1 text-left hover:bg-gray-300 rounded-md"
                                     >Revert to original</button
@@ -276,10 +288,15 @@
             <div
                 class="flot flex items-center gap-2 px-1 py-1 bg-gradient-to-br from-gray-800 to-gray-900 backdrop-blur-sm border border-gray-700 rounded-lg shadow-sm hover:shadow-md transition-all duration-300 hover:scale-105 cursor-default group"
             >
-                <span class="text-gray-300 text-sm font-medium hidden md:inline">Characters</span>
+                <span class="text-gray-300 text-sm font-medium hidden md:inline"
+                    >Characters</span
+                >
                 <div class="w-px h-5 bg-gray-600 hidden md:block"></div>
                 <span
-                    class="text-white font-semibold font-mono text-sm px-2 py-1 rounded-md {count > 2000 ? 'bg-red-600' : 'bg-green-600'}"
+                    class="text-white font-semibold font-mono text-sm px-2 py-1 rounded-md {count >
+                    2000
+                        ? 'bg-red-600'
+                        : 'bg-green-600'}"
                 >
                     {count}
                 </span>
