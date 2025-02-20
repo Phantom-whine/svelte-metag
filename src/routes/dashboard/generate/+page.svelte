@@ -266,7 +266,7 @@
                                     <span class="hidden md:inline">Text</span>
                                 </div>
                             </button>
-                            <!-- <button
+                            <button
                                 onclick={() => (activeTab = "youtube")}
                                 class:bg-zinc-700={activeTab === "youtube"}
                                 class="flex-1 py-1 px-4 rounded-md transition-colors"
@@ -283,7 +283,7 @@
                                     </svg>
                                     <span class="hidden md:inline">Youtube</span>
                                 </div>
-                            </button> -->
+                            </button>
                             <button
                                 onclick={() => (activeTab = "url")}
                                 class:bg-zinc-700={activeTab === "url"}
@@ -351,8 +351,8 @@
                                 Get Ideas
                             </button>
                         </div>
-                    <!-- {:else if activeTab === "youtube"}
-                         svelte-ignore a11y_label_has_associated_control
+                    {:else if activeTab === "youtube"}
+                        <!-- svelte-ignore a11y_label_has_associated_control -->
                         <label class="text-sm text-gray-300 mb-2 block"
                             >Youtube Link</label
                         >
@@ -361,7 +361,7 @@
                             placeholder="Enter Youtube video link"
                             type="url"
                             class="w-full bg-zinc-800 border-zinc-700 rounded-lg p-4 text-white focus:outline-none focus:ring-2 focus:ring-[#d4ff52] focus:border-[#d4ff52]"
-                        /> -->
+                        />
                     {:else if activeTab === "url"}
                         <!-- svelte-ignore a11y_label_has_associated_control -->
                         <label class="text-sm text-gray-300 mb-2 block"
