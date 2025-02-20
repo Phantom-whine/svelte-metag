@@ -126,7 +126,7 @@
 <div>
   <button
     onclick={handleGoogleSignIn}
-    class="w-[90%] md:w-full h-12 bg-[#ccfc7e] font-extrabold text-black rounded-md flex items-center px-2 hover:scale-105 active:scale-95 transition-all"
+    class="mx-auto w-[90%] md:w-full h-12 bg-[#ccfc7e] font-extrabold text-black rounded-md flex items-center px-2 hover:scale-105 active:scale-95 transition-all"
 >
     {#if !isLoading}
         <div class="flex-shrink-0 mr-auto rounded-md p-2 bg-black">

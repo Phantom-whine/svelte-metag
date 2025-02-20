@@ -205,7 +205,7 @@
           </button>
         {/if}
       
-       {#if cur > 1}
+       {#if cur}
         <span class="text-sm font-medium flot text-white">
             Page {cur}
         </span>
