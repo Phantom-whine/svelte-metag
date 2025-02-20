@@ -9,7 +9,7 @@
             </p>
         </div>
 
-        <div class="w-full max-w-xl mx-auto p-4 flot">
+        <div class="w-full max-w-xl mx-auto p-1 md:p-2 flot">
             <div class="space-y-3">
                 <!-- First Card - Red Theme -->
                 <div class="w-full bg-white rounded-2xl p-6 shadow-lg border-2 border-red-500 hover:shadow-xl transition-all duration-300">

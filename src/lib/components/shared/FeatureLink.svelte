@@ -9,7 +9,7 @@
             </p>
         </div>
 
-        <div class="w-full max-w-xl mx-auto lg:mx-0 bg-white rounded-3xl p-8 shadow-lg">
+        <div class="w-full max-w-xl mx-auto lg:mx-0 bg-white rounded-3xl p-4 md:p-8 shadow-lg">
             <div class="space-y-6">
                 <!-- Card 1 -->
                 <div class="p-4 bg-gray-50 rounded-xl border border-gray-200 hover:shadow-md transition-all duration-300">

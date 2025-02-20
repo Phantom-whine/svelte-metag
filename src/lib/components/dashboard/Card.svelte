@@ -20,7 +20,7 @@
                     <div class="absolute -bottom-1 -right-1 bg-green-400 w-3 h-3 rounded-full border-2 border-zinc-900"></div>
                 </div>
                 <div>
-                    <h3 class="font-semibold text-white text-base">Metag AI</h3>
+                    <h3 class="font-semibold text-white text-base flot">Metag AI</h3>
                     <p class="text-xs text-zinc-400 font-medium">{date}</p>
                 </div>
             </div>

@@ -64,7 +64,7 @@
 </script>
 <div class="h-8"></div>
 <FeatureHead title="ONE MORE STEP🤗" description="Back to Business" id='pricing'/>
-<div class="min-h-screen py-8 px-4 text-white">
+<div class="h-fit py-8 px-4 text-white">
     <div class="max-w-6xl mx-auto">
         <!-- Period Toggle -->
         <div class="flex justify-center mb-12 gap-2 text-sm">

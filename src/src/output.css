@@ -953,6 +953,11 @@ video {
   height: 3.5rem;
 }
 
+.h-fit {
+  height: -moz-fit-content;
+  height: fit-content;
+}
+
 .max-h-48 {
   max-height: 12rem;
 }
@@ -1080,6 +1085,10 @@ video {
 
 .w-14 {
   width: 3.5rem;
+}
+
+.w-\[90\%\] {
+  width: 90%;
 }
 
 .min-w-0 {
@@ -2939,6 +2948,11 @@ video {
   .md\:py-0 {
     padding-top: 0px;
     padding-bottom: 0px;
+  }
+
+  .md\:px-\[0\] {
+    padding-left: 0;
+    padding-right: 0;
   }
 
   .md\:text-5xl {

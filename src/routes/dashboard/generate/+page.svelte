@@ -250,20 +250,15 @@
                                 class="flex-1 py-2 px-4 rounded-md transition-colors"
                             >
                                 <div class="flex items-center justify-center">
-                                    <svg
-                                        class="w-4 h-4 mr-2"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <path
-                                            stroke-linecap="round"
-                                            stroke-linejoin="round"
-                                            stroke-width="2"
-                                            d="M12 6v6m0 0v6m0-6h6m-6 0H6"
-                                        />
-                                    </svg>
-                                    <span class="hidden md:inline">Text</span>
+                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-4 h-4 mr-2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M15 3h6v6" />
+                                        <path d="M9 21h-6v-6" />
+                                        <path d="M21 3l-9 9" />
+                                        <path d="M3 21l9-9" />
+                                        <path d="M7 7h4" />
+                                        <path d="M13 17h4" />
+                                      </svg>
+                                    <span class="hidden md:inline">Topic</span>
                                 </div>
                             </button>
                             <button

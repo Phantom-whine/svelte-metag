@@ -27,8 +27,8 @@
                         <div class="space-y-4">
                             <div class="bg-red-100 p-4 rounded-xl hover:shadow-md transition-all duration-300 cursor-pointer">
                                 <div class="text-red-600 font-medium mb-2 flex items-center justify-between">
-                                    <span>Article</span>
-                                    <span class="text-xs bg-red-200 px-2 py-1 rounded-full">66%</span>
+                                    <span>Youtube</span>
+                                    <span class="text-xs bg-red-200 px-2 py-1 rounded-full">URL</span>
                                 </div>
                                 <div class="w-full h-2 bg-red-200 rounded-full">
                                     <div class="w-2/3 h-2 bg-red-500 rounded-full transition-all duration-500"></div>
@@ -38,7 +38,7 @@
                             <div class="bg-blue-100 p-4 rounded-xl hover:shadow-md transition-all duration-300 cursor-pointer">
                                 <div class="text-blue-600 font-medium mb-2 flex items-center justify-between">
                                     <span>Blog Post</span>
-                                    <span class="text-xs bg-blue-200 px-2 py-1 rounded-full">50%</span>
+                                    <span class="text-xs bg-blue-200 px-2 py-1 rounded-full">URL</span>
                                 </div>
                                 <div class="w-full h-2 bg-blue-200 rounded-full">
                                     <div class="w-1/2 h-2 bg-blue-500 rounded-full transition-all duration-500"></div>
@@ -48,7 +48,7 @@
                             <div class="bg-green-100 p-4 rounded-xl hover:shadow-md transition-all duration-300 cursor-pointer">
                                 <div class="text-green-600 font-medium mb-2 flex items-center justify-between">
                                     <span>Topic</span>
-                                    <span class="text-xs bg-green-200 px-2 py-1 rounded-full">50%</span>
+                                    <span class="text-xs bg-green-200 px-2 py-1 rounded-full">Text</span>
                                 </div>
                                 <div class="w-full h-2 bg-green-200 rounded-full">
                                     <div class="w-1/2 h-2 bg-green-500 rounded-full transition-all duration-500"></div>
