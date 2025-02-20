@@ -11,6 +11,7 @@
     import axios from 'axios';
     import { page } from "$app/stores";
     import { tempStore } from "$lib/editor.js";
+    import { get } from "svelte/store";
 
     function updateQueryParam(key, value) {
         // Get the current query parameters or create an empty one
@@ -32,18 +33,28 @@
     }
 
     let posts = $state();
+    let cur = $state(1);
+    let next = $state();
+    let prev = $state();
+    let count = $state();
 
     async function fetchData(){
         posts = undefined;
-        let frame = $page.url.searchParams.get("frame") || 'most_recent';
+        let frame = $page.url.searchParams.get("frame") || "most_recent";
+        let pageNumber = $page.url.searchParams.get("page") || 1;
         try {
-            const response = await axios.get(`${import.meta.env.VITE_DJANGO_API_URL}/api/posts?frame=${frame}`, {
+            const response = await axios.get(`${import.meta.env.VITE_DJANGO_API_URL}/api/posts?frame=${frame}&page=${pageNumber}`, {
                 headers: {
                     'Authorization': `Bearer ${Cookies.get('access')}`
                 }
             })
             posts = response.data.results;
+            
             open = false;
+            cur = pageNumber;
+            next = response.data.next;
+            prev = response.data.previous;
+            count = response.data.count;
         } catch (error) {
             open = false;
             triggerToast('error', error.data.error || 'An error occured')
@@ -183,4 +194,30 @@
         </div>
         {/if}
     </div>
+
+    <div class="flex items-center justify-center space-x-4 mt-8">
+        <!-- svelte-ignore a11y_consider_explicit_label -->
+        {#if prev}
+        <button class="p-2 rounded-lg bg-[#ccfc7e]" onclick={()=>updateQueryParam('page', parseInt(cur)-1)}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m15 18-6-6 6-6"/>
+            </svg>
+          </button>
+        {/if}
+      
+       {#if cur > 1}
+        <span class="text-sm font-medium flot text-white">
+            Page {cur}
+        </span>
+       {/if}
+      
+        <!-- svelte-ignore a11y_consider_explicit_label -->
+        {#if next}
+        <button class="p-2 rounded-lg bg-[#ccfc7e]" onclick={()=>updateQueryParam('page', parseInt(cur)+1)}>
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="m9 18 6-6-6-6"/>
+            </svg>
+          </button>
+        {/if}
+      </div>
 </main>

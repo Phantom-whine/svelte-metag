@@ -90,6 +90,7 @@ export const verifyToken = async () => {
 export const getCurrentUser = async () => {
   try {
     const { data } = await apiClient('/api/auth/me/');
+    // Cookies.set('profile', data.profile)
     return data;
   } catch {
     return null;

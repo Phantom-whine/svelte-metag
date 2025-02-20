@@ -8,16 +8,18 @@
     import Benefits from "$lib/components/shared/Benefits.svelte";
     import Testimonial from "$lib/components/shared/testimonial.svelte";
     import Pricing from "$lib/components/shared/Pricing.svelte";
+    import Footer from "$lib/components/shared/Footer.svelte";
+    import Faq from "$lib/components/shared/FAQ.svelte";
 
     let { data } = $props();
     let isLoggedIn = !!data.username;
 </script>
 
 <svelte:head>
-    <title>Metag AI - Some title</title>
+    <title>Metag AI - Grow On Linkedin</title>
 </svelte:head>
 
-<Banner text='sample text'/>
+<Banner text='Get started with your Free credits'/>
 <div class="bg-[#121212]">
     <Navbar isLoggedIn/>
     <Hero isLoggedIn/>
@@ -34,4 +36,6 @@
     </div>
     <Testimonial />
     <Pricing />
+    <Faq />
+    <Footer />
 </div>

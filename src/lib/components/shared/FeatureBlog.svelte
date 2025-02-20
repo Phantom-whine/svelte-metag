@@ -9,69 +9,125 @@
             </p>
         </div>
 
-        <div class="w-full max-w-xl mx-auto lg:mx-0 bg-white rounded-3xl p-8 shadow-lg">
-            <div class="space-y-6">
-                <div class="space-y-2">
-                    <label for="topic" class="block text-sm font-medium text-gray-700">Topic</label>
-                    <input type="text" id="topic" placeholder="Enter your blog topic" 
-                           class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FF3B00] focus:border-[#FF3B00]">
-                </div>
-
-                <div class="space-y-2">
-                    <label for="length" class="block text-sm font-medium text-gray-700">Length</label>
-                    <select id="length" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FF3B00] focus:border-[#FF3B00]">
-                        <option value="">Select blog length</option>
-                        <option value="short">Short (500 words)</option>
-                        <option value="medium">Medium (1000 words)</option>
-                        <option value="long">Long (1500+ words)</option>
-                    </select>
-                </div>
-
-                <div class="space-y-2">
-                    <label for="language" class="block text-sm font-medium text-gray-700">Language</label>
-                    <select id="language" class="w-full px-3 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-[#FF3B00] focus:border-[#FF3B00]">
-                        <option value="">Select language</option>
-                        <option value="en">English</option>
-                        <option value="es">Spanish</option>
-                        <option value="fr">French</option>
-                        <option value="de">German</option>
-                        <option value="zh">Chinese</option>
-                    </select>
-                </div>
-
-                <div class="flex items-center justify-between">
-                    <label class="flex items-center space-x-2 cursor-pointer">
-                        <div class="custom-switch">
-                            <input type="checkbox">
-                            <span class="custom-slider"></span>
+        <div class="w-full max-w-xl mx-auto p-4 flot">
+            <div class="space-y-3">
+                <!-- First Card - Red Theme -->
+                <div class="w-full bg-white rounded-2xl p-6 shadow-lg border-2 border-red-500 hover:shadow-xl transition-all duration-300">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 rounded-full bg-gradient-to-br from-red-100 to-red-200 flex items-center justify-center shadow-inner">
+                                <img src="https://static.vecteezy.com/system/resources/thumbnails/021/059/825/small_2x/chatgpt-logo-chat-gpt-icon-on-green-background-free-vector.jpg" class="rounded-md" alt="GPT Logo">
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg text-gray-800">GPT Generated</h3>
+                                <p class="text-sm text-gray-500 flex items-center gap-2">
+                                    <span class="inline-block w-2 h-2 rounded-full bg-red-500"></span>
+                                    2 hours ago
+                                </p>
+                            </div>
                         </div>
-                        <span class="text-sm">SEO Optimize</span>
-                    </label>
-
-                    <label class="flex items-center space-x-2 cursor-pointer">
-                        <div class="custom-switch">
-                            <input type="checkbox">
-                            <span class="custom-slider"></span>
+                        <div class="bg-red-100 p-2 rounded-full">
+                            <!-- X icon -->
+                            <svg class="text-red-500 w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <line x1="18" y1="6" x2="6" y2="18"></line>
+                                <line x1="6" y1="6" x2="18" y2="18"></line>
+                            </svg>
                         </div>
-                        <span class="text-sm">Use Latest Data</span>
-                    </label>
-                </div>
-
-                <button type="submit" 
-                        class="w-full bg-black hover:scale-105 active:scale-95 transition text-white font-bold py-2 px-4 rounded-lg transition duration-300">
-                    Generate Viral Blog Post
-                </button>
-            </div>
-
-            <div class="mt-6 pt-6 border-t">
-                <div class="flex items-center justify-between text-sm text-gray-500">
-                    <div class="flex items-center gap-2">
-                        <div class="w-2 h-2 rounded-full bg-green-500"></div>
-                        <span>AI Processing</span>
                     </div>
-                    <div class="flex items-center gap-2">
-                        <div class="w-2 h-2 rounded-full animate-pulse bg-blue-500"></div>
-                        <span>Real-time generation</span>
+                    
+                    <div class="mb-6">
+                        <p class="text-gray-700 leading-relaxed">This is AI generated content that needs improvement. It lacks personal touch and originality.</p>
+                    </div>
+                    
+                    <div class="flex items-center justify-between text-sm">
+                        <div class="flex items-center gap-2 text-gray-600">
+                            <div class="flex items-center gap-1">
+                                <!-- Heart icon -->
+                                <svg class="w-4 h-4 text-red-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+                                </svg>
+                                <span>15</span>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <!-- Message Circle icon -->
+                                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                                </svg>
+                                <span>0</span>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <!-- Share icon -->
+                                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="18" cy="5" r="3"></circle>
+                                    <circle cx="6" cy="12" r="3"></circle>
+                                    <circle cx="18" cy="19" r="3"></circle>
+                                    <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                                    <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                                </svg>
+                                <span>0</span>
+                            </div>
+                        </div>
+                        <span class="text-xs text-gray-500">AI Content</span>
+                    </div>
+                </div>
+    
+                <!-- Second Card - Green Theme -->
+                <div class="w-full bg-white rounded-2xl p-6 shadow-lg border-2 border-green-500 hover:shadow-xl transition-all duration-300">
+                    <div class="flex items-start justify-between mb-4">
+                        <div class="flex items-center gap-4">
+                            <div class="w-14 h-14 flex items-center justify-center">
+                                <img src="./logo.png" alt="Human Written">
+                            </div>
+                            <div>
+                                <h3 class="font-bold text-lg text-gray-800">Metag Written</h3>
+                                <p class="text-sm text-gray-500 flex items-center gap-2">
+                                    <span class="inline-block w-2 h-2 rounded-full bg-green-500"></span>
+                                    2 hours ago
+                                </p>
+                            </div>
+                        </div>
+                        <div class="bg-green-100 p-2 rounded-full">
+                            <!-- Thumbs Up icon -->
+                            <svg class="text-green-500 w-6 h-6" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M7 10v12"></path>
+                                <path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2h0a3.13 3.13 0 0 1 3 3.88Z"></path>
+                            </svg>
+                        </div>
+                    </div>
+                    
+                    <div class="mb-6">
+                        <p class="text-gray-700 leading-relaxed">This is human-written content with personality and unique insights. It resonates well with readers.</p>
+                    </div>
+                    
+                    <div class="flex items-center justify-between text-sm">
+                        <div class="flex items-center gap-2 text-gray-600">
+                            <div class="flex items-center gap-1">
+                                <!-- Heart icon -->
+                                <svg class="w-4 h-4 text-green-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
+                                </svg>
+                                <span>800</span>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <!-- Message Circle icon -->
+                                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
+                                </svg>
+                                <span>60</span>
+                            </div>
+                            <div class="flex items-center gap-1">
+                                <!-- Share icon -->
+                                <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <circle cx="18" cy="5" r="3"></circle>
+                                    <circle cx="6" cy="12" r="3"></circle>
+                                    <circle cx="18" cy="19" r="3"></circle>
+                                    <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
+                                    <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
+                                </svg>
+                                <span>30</span>
+                            </div>
+                        </div>
+                        <span class="text-xs text-gray-500">Human Content</span>
                     </div>
                 </div>
             </div>
@@ -79,44 +135,3 @@
     </div>
 </div>
 <div class="h-8"></div>
-<style>
-    .custom-switch {
-        position: relative;
-        display: inline-block;
-        width: 48px;
-        height: 24px;
-    }
-    .custom-switch input {
-        opacity: 0;
-        width: 0;
-        height: 0;
-    }
-    .custom-slider {
-        position: absolute;
-        cursor: pointer;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: #ccc;
-        transition: .4s;
-        border-radius: 24px;
-    }
-    .custom-slider:before {
-        position: absolute;
-        content: "";
-        height: 20px;
-        width: 20px;
-        left: 2px;
-        bottom: 2px;
-        background-color: white;
-        transition: .4s;
-        border-radius: 50%;
-    }
-    input:checked + .custom-slider {
-        background-color: black;
-    }
-    input:checked + .custom-slider:before {
-        transform: translateX(24px);
-    }
-</style>

@@ -20,7 +20,6 @@
     const API_URL = import.meta.env.VITE_DJANGO_API_URL;
 
     const postId = $page.url.searchParams.get("post_id");
-    console.log(postId)
 
     $effect(() => {
         profile;

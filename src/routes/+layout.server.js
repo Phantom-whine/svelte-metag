@@ -60,6 +60,7 @@ export async function load({ fetch, cookies }) {
       }
     );
     // console.log(userRes.json())
+    // cookies.set('profile', userRes.json().profile)
     return { user: await userRes.json() };
   } catch (error) {
       cookies.delete('access', { path: '/' });

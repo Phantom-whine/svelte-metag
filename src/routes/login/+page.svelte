@@ -4,7 +4,7 @@
 <svelte:head>
     <title>Start Wining Today - Metag</title>
 </svelte:head>
-<div class="dark bg-black min-h-screen font-sans">
+<div class="dark bg-black h-dvh font-sans">
     <div
         class="min-h-screen flex flex-col items-center justify-center relative"
     >
