@@ -13,7 +13,9 @@
     let topics = $state([]);
 
     const fields = [
+        "Everyday Life",
         "Technology",
+        "Work Life",
         "Healthcare",
         "Finance",
         "Education",
@@ -51,6 +53,8 @@
     function useTopic(topic) {
         return onUse(topic);
     }
+    
+    let suggestions = ['SEO', 'SERP', 'AI marketing']
 </script>
 
 {#if openModal}
@@ -125,6 +129,15 @@
                     placeholder="Enter your content or select a topic above..."
                     class="w-full min-h-[120px] bg-zinc-800 border-zinc-700 rounded-lg p-3 text-sm text-white"
                 ></textarea>
+                <!-- <div class="suggested_section flex justify-between gap-2">
+                    {#each suggestions as suggested}
+                        <div class="flot text-sm text-center active:scale-95 transition w-full p-1 rounded-md bg-zinc-700" onclick={() => {
+                            textContent = suggested;
+                        }}>
+                            {suggested}
+                        </div>
+                    {/each}
+                </div> -->
 
                 <!-- Loading Button -->
                 <button

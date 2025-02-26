@@ -1,4 +1,4 @@
-<div class="bg-black rounded-xl overflow-hidden transition-colors flex flex-col h-full w-full animate-pulse">
+<div class="bg-black rounded-2xl overflow-hidden transition-colors flex flex-col h-full w-full animate-pulse">
     <div class="p-4 flex-1">
         <div class="flex items-center justify-between mb-3">
             <div class="flex items-center space-x-3">
@@ -26,6 +26,6 @@
 
     <!-- Button placeholder -->
     <div class="p-4">
-        <div class="w-full h-10 bg-zinc-600 rounded-lg"></div>
+        <div class="w-full h-10 bg-zinc-600 rounded-xl"></div>
     </div>
 </div>

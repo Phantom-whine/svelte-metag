@@ -1,7 +1,16 @@
 <script>
   import { onMount } from "svelte";
   import Cookies from "js-cookie";
+  import { clearTokens } from "$lib/auth";
   import Navbar from "$lib/components/dashboard/Navbar.svelte";
+
+  let { data } = $props();
+  
+  const logout = () => {
+        clearTokens();
+        goto("/");
+    };
+
   const plans = [
     {
       name: "Basic",
@@ -117,7 +126,7 @@
             <h1
               class="flot-b text-3xl font-bold bg-gradient-to-r from-[#ccfc7e] to-green-300 bg-clip-text text-transparent"
             >
-              John Doe
+              {data.user.fullname}
             </h1>
             <div class="flex items-center justify-center gap-2 text-zinc-400">
               <svg
@@ -135,7 +144,7 @@
                 />
                 <path d="m22 6-10 7L2 6" />
               </svg>
-              <span class="text-sm">john.doe@example.com</span>
+              <span class="text-sm">{data.user.email}</span>
             </div>
           </div>
 
@@ -291,6 +300,7 @@
     <!-- Footer -->
     <div class="p-6 mt-6">
       <button
+        onclick={logout}
         class="w-full flex items-center justify-center gap-2 px-6 py-3.5 font-medium rounded-lg transition-all
          bg-red-500/90 hover:bg-red-500/80 active:scale-[0.98]
          focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400/50

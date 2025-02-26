@@ -4,7 +4,7 @@
             <h1 class="text-black text-5xl md:text-6xl lg:text-7xl font-bold leading-tight flot-b">
                 Optimized for <br>LinkedIn Growth
             </h1>
-            <p class="text-black text-lg md:text-xl max-w-xl">
+            <p class="text-black text-lg md:text-xl max-w-xl flot">
                 AI suggests post formats that maximize reach.
             </p>
         </div>

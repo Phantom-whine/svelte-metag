@@ -24,7 +24,7 @@
             <!-- Logo -->
             <a href="/" class="flex items-center space-x-2 z-50">
                 <img src="/logo.png" alt="DallFin Logo" class="w-10 h-10 rounded-md" loading="lazy">
-                <span class="text-xl font-bold text-white flot">Metag</span>
+                <span class="text-xl font-bold text-white flot-b">Metag</span>
             </a>
 
             <!-- Desktop Navigation -->

@@ -67,7 +67,7 @@
 <div class="h-fit py-8 px-4 text-white">
     <div class="max-w-6xl mx-auto">
         <!-- Period Toggle -->
-        <div class="flex justify-center mb-12 gap-2 text-sm">
+        <div class="flex justify-center mb-12 gap-2 text-sm flot">
             <button 
                 onclick={() => billingPeriod = 'monthly'}
                 class="px-4 py-1.5 rounded-full transition-colors"
@@ -85,7 +85,7 @@
                 class:text-black={billingPeriod == 'yearly'}
             >
                 Yearly
-                <span class="ml-1 text-yellow-400">Save {maxSavings}%</span>
+                <span class="ml-1" class:text-black={billingPeriod == 'yearly'} class:text-yellow-400={billingPeriod != 'yearly'}>Save {maxSavings}%</span>
             </button>
         </div>
 

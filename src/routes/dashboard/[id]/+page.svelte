@@ -9,6 +9,7 @@
     let { data } = $props();
     let { user } = data;
     let { id } = data;
+    let new_title = $state();
     
     let msg = $state()
     let type = $state()
@@ -62,7 +63,7 @@
         <div class="flex items-center justify-end gap-4 flex-row-reverse">
             <!-- Header Text -->
             <h1 class="text-xl font-semibold text-white flot-b">{#if post}
-                {title}
+              {title}
                 {:else}
                 Loading...
             {/if}</h1>
@@ -81,7 +82,7 @@
     <div class="bg-zinc-900 text-white rounded-xl p-1 md:p-2 min-h-screen">
         <div class="h-full flex items-center justify-center text-gray-400 p-1 md:p-4">
         {#if post}
-            <LinkedinCard content={post.content} id={post.id}/>
+            <LinkedinCard content={post.content} id={post.id} type={false} timeFrame={post.time_ago} title={post.title}/>
         {:else}
             <div class="flex justify-center">
                 <img src="/loading.gif" class="h-24 w-24 mt-[100px]" alt="loading">

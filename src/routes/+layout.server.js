@@ -50,7 +50,7 @@ export async function load({ fetch, cookies }) {
       }
     );
 
-    if (!verifyRes.ok) throw new Error('Invalid token');
+    if (!verifyRes.ok) throw redirect(307, '/login');
 
     // Get user data with valid token
     const userRes = await fetch(
@@ -59,8 +59,7 @@ export async function load({ fetch, cookies }) {
         headers: { Authorization: `Bearer ${accessToken}` }
       }
     );
-    // console.log(userRes.json())
-    // cookies.set('profile', userRes.json().profile)
+
     return { user: await userRes.json() };
   } catch (error) {
       cookies.delete('access', { path: '/' });

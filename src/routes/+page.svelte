@@ -20,22 +20,21 @@
 </svelte:head>
 
 <Banner text='Get started with your Free credits'/>
-<div class="bg-[#121212]">
-    <Navbar isLoggedIn/>
-    <Hero isLoggedIn/>
-    <FeatureRepr />
-    <FeatureLink />
-    <FeatureBlog />
-    <Benefits />
-    <div class="flex items-center justify-center mt-20 p-4">
-        <div class="bg-[#ccfc7e] p-8 rounded-lg shadow-lg max-w-5xl">
-            <p class="text-black text-4xl font-bold leading-tight text-center flot">
-                Create content at your own pace that goes viral. Craft engaging stories and authentic messages. Your unique voice will resonate.
-            </p>
-        </div>
+
+<Navbar isLoggedIn/>
+<Hero isLoggedIn/>
+<FeatureRepr />
+<FeatureLink />
+<FeatureBlog />
+<Benefits />
+<div class="flex items-center justify-center mt-20 p-4">
+    <div class="bg-[#ccfc7e] p-8 rounded-lg shadow-lg max-w-5xl">
+        <p class="text-black text-4xl font-bold leading-tight text-center flot-b">
+            Create content at your own pace that goes viral. Craft engaging stories and authentic messages. Your unique voice will resonate.
+        </p>
     </div>
-    <Testimonial />
-    <Pricing />
-    <Faq />
-    <Footer />
 </div>
+<Testimonial />
+<Pricing />
+<Faq />
+<Footer />

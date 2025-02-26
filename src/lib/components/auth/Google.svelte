@@ -126,12 +126,12 @@
 <div>
   <button
     onclick={handleGoogleSignIn}
-    class="mx-auto w-[90%] md:w-full h-12 bg-[#ccfc7e] font-extrabold text-black rounded-md flex items-center px-2 hover:scale-105 active:scale-95 transition-all"
+    class="mx-auto w-[90%] md:w-full h-12 bg-[#ccfc7e] font-extrabold text-black rounded-md flex items-center px-2 active:scale-95 transition-all"
 >
     {#if !isLoading}
         <div class="flex-shrink-0 mr-auto rounded-md p-2 bg-black">
             <svg class="w-5 h-5" viewBox="0 0 24 24">
-                <g stroke="#000" stroke-width="0.5" fill="none">
+                <g stroke="none" stroke-width="0.5" fill="none">
                     <path
                         d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z"
                         fill="#4285F4"

@@ -2,10 +2,11 @@
     function removeTags(inputText) {
         // Remove all <br> and <p> tags (including closing tags)
         const cleanedText = inputText.replace(/<\/?\w+\s*\/?>/gi, '');
-        const newtxt = cleanedText.replace(/<!---->/g, '');
+        let newtxt = cleanedText.replace(/<!---->/g, '');
+        newtxt = newtxt.replace(/&nbsp;/g, '');
         return newtxt;
     }
-    let { title, body, date, id, onDelete } = $props();
+    let { title, body, date, id, onDelete, edited } = $props();
     let body_cleaned = removeTags(body);
     let title_cleaned = removeTags(title);
     let open = $state(false)
@@ -21,7 +22,10 @@
                 </div>
                 <div>
                     <h3 class="font-semibold text-white text-base flot">Metag AI</h3>
-                    <p class="text-xs text-zinc-400 font-medium">{date}</p>
+                    <p class="text-xs text-zinc-400 font-medium inline">{date}</p>
+                    {#if edited}
+                        <p class="text-xs text-green-300 font-medium inline">(EDITED)</p>
+                    {/if}
                 </div>
             </div>
             <div class="relative">
@@ -54,7 +58,7 @@
             </div>
         </div>
         <h4 class="text-lg font-semibold text-white mb-3 leading-snug flot">{title_cleaned}</h4>
-        <p class="text-sm text-zinc-300/90 leading-relaxed line-clamp-3 font-medium">{body_cleaned}</p>
+        <p class="text-sm text-zinc-300/90 leading-relaxed line-clamp-3">{body_cleaned}</p>
     </div>
     <div class="px-5 pb-5">
         <a href="/dashboard/{id}">

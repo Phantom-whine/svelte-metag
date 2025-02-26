@@ -245,19 +245,23 @@
                     <div class="w-full">
                         <div class="w-full bg-zinc-800 rounded-lg p-1 flex">
                             <button
-                                onclick={() => (activeTab = "text")}
+                                onclick={() => {
+                                    activeTab = "text"
+                                }}
                                 class:bg-zinc-700={activeTab === "text"}
                                 class="flex-1 py-2 px-4 rounded-md transition-colors"
                             >
                                 <div class="flex items-center justify-center">
-                                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" class="w-4 h-4 mr-2" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-                                        <path d="M15 3h6v6" />
-                                        <path d="M9 21h-6v-6" />
-                                        <path d="M21 3l-9 9" />
-                                        <path d="M3 21l9-9" />
-                                        <path d="M7 7h4" />
-                                        <path d="M13 17h4" />
-                                      </svg>
+                                    <svg
+                                        xmlns="http://www.w3.org/2000/svg"
+                                        class="h-4 w-4 mr-2"
+                                        viewBox="0 0 24 24"
+                                        fill="currentColor"
+                                    >
+                                        <path
+                                            d="M3 17.25V21h3.75L17.81 9.94l-3.75-3.75L3 17.25zM20.71 7.04c.39-.39.39-1.02 0-1.41l-2.34-2.34a.9959.9959 0 0 0-1.41 0l-1.83 1.83 3.75 3.75 1.83-1.83z"
+                                        />
+                                    </svg>
                                     <span class="hidden md:inline">Topic</span>
                                 </div>
                             </button>
@@ -413,7 +417,7 @@
                             id="cta"
                             bind:value={cta}
                             placeholder="Enter call-to-action..."
-                            class="w-full min-h-[100px] bg-zinc-800 border-zinc-700 rounded-lg p-4 text-white focus:outline-none focus:ring-2 focus:ring-[#d4ff52]"
+                            class="w-full min-h-[150px] bg-zinc-800 border-zinc-700 rounded-lg p-4 text-white focus:outline-none focus:ring-2 focus:ring-[#d4ff52]"
                         ></textarea>
                     </div>
 
@@ -421,7 +425,7 @@
                     <button
                         onclick={generatePost}
                         disabled={loading}
-                        class="flot-b w-full bg-[#ccfc7e] active:scale-95 text-black font-semibold py-2 text-lg rounded-lg transition-all duration-200 flex items-center justify-center gap-2"
+                        class="flot-b w-full bg-[#ccfc7e] active:scale-95 text-black font-semibold py-2 text-lg rounded-lg transition-all duration-200 flex items-center justify-center gap-2 relative bottom-[0]"
                     >
                         <div class="flex items-center justify-center gap-2">
                             {loading ? "Generating" : "Generate Viral Post"}
@@ -490,15 +494,27 @@
                     >
                         {#if result}
                             <LinkedinCard
+                                title={result.title}
                                 content={result.content}
                                 id={result.id}
+                                type={true}
                             />
                         {:else}
+                            {#if activeTab == 'text'}
                             <img
-                                src="/loading.gif"
-                                class="h-16 w-16"
-                                alt="loading"
-                            />
+                            src="/loading.gif"
+                            class="h-16 w-16"
+                            alt="loading"
+                        />
+                        {:else if activeTab == 'youtube'}
+                        <img
+                        src="/youtube.gif"
+                        class="h-16 w-16"
+                        alt="loading"
+                    />
+                    {:else}
+                    <span class="loader h-16 w-16"></span>
+                            {/if}
                         {/if}
                     </div>
                 </div>
@@ -512,4 +528,60 @@
     #cta {
         resize: none;
     }
+    .loader {
+          /* width: 200px;
+          height: 140px; */
+          background: #979794;
+          box-sizing: border-box;
+          position: relative;
+          border-radius:8px;
+          perspective: 1000px;
+        }
+
+        .loader:before{
+          content: '';
+          position: absolute;
+          left: 10px;
+          right: 10px;
+          top: 10px;
+          bottom: 10px;
+          border-radius:8px;
+          background: #f5f5f5  no-repeat;
+          background-size: 60px 10px;
+          background-image: 	linear-gradient(#ddd 100px, transparent 0) ,
+                    linear-gradient(#ddd 100px, transparent 0), 
+                    linear-gradient(#ddd 100px, transparent 0), 
+                    linear-gradient(#ddd 100px, transparent 0), 
+                    linear-gradient(#ddd 100px, transparent 0), 
+                    linear-gradient(#ddd 100px, transparent 0);
+          
+          background-position: 15px 30px , 15px 60px , 15px 90px, 
+                    105px 30px , 105px 60px , 105px 90px;
+          box-shadow: 0 0 10px rgba(0,0,0,0.25);
+        }
+        .loader:after {
+          content: '';
+            position: absolute;
+            width: calc(50% - 10px);
+            right: 10px;
+            top: 10px;
+            bottom: 10px;
+            border-radius: 8px;
+            background: #fff no-repeat;
+            background-size: 60px 10px;
+            background-image: linear-gradient(#ddd 100px, transparent 0), 
+                    linear-gradient(#ddd 100px, transparent 0), 
+                    linear-gradient(#ddd 100px, transparent 0);
+            background-position: 50% 30px ,50% 60px , 50%  90px;
+            transform: rotateY(0deg );
+            transform-origin: left center;
+          animation: paging 1s linear infinite;
+        }
+
+
+        @keyframes paging {
+          to {
+            transform: rotateY( -180deg );
+          }
+        }
 </style>

@@ -10,7 +10,7 @@
                 <br>
                 Any Content
             </h1>
-            <p class="text-lg md:text-xl max-w-xl text-black">
+            <p class="text-lg md:text-xl max-w-xl text-black flot">
                 Convert ideas, YouTube videos, & blogs into LinkedIn posts instantly.
             </p>
         </div>
@@ -59,7 +59,7 @@
     
                     <!-- Arrow Column -->
                     <div class="flex items-center justify-center py-4 md:py-0 slide-in" style="animation-delay: 0.2s;">
-                        <div class="w-16 h-16 rounded-2xl bg-black p-2 flex items-center justify-center transform transition-transform duration-500">
+                        <div class="rotate-90 md:rotate-[-90] w-16 h-16 rounded-2xl bg-black p-2 flex items-center justify-center transform transition-transform duration-500">
                             <svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path>
                             </svg>

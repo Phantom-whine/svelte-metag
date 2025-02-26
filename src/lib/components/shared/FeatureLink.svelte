@@ -4,12 +4,12 @@
             <h1 class="text-white text-5xl md:text-6xl lg:text-7xl font-extrabold leading-tight flot-b">
                 Post Viral & <br>Evergreen Topics
             </h1>
-            <p class="text-white/90 text-lg md:text-xl max-w-xl">
+            <p class="text-white/90 text-lg md:text-xl max-w-xl flot">
                 Stop staring at a blank screen. Start posting with confidence!
             </p>
         </div>
 
-        <div class="w-full max-w-xl mx-auto lg:mx-0 bg-white rounded-3xl p-4 md:p-8 shadow-lg">
+        <div class="w-full max-w-xl mx-auto lg:mx-0 bg-white rounded-3xl p-4 md:p-4 shadow-lg">
             <div class="space-y-6">
                 <!-- Card 1 -->
                 <div class="p-4 bg-gray-50 rounded-xl border border-gray-200 hover:shadow-md transition-all duration-300">
@@ -17,7 +17,7 @@
                         <!-- Header -->
                         <div class="flex justify-between items-start">
                             <h3 class="text-lg font-semibold text-gray-900 flot">Going Viral with AI</h3>
-                            <button class="active:scale-95 flot px-4 py-2 bg-black text-white text-sm font-medium rounded-lg hover:bg-zinc-700 transition-all duration-300">
+                            <button class="active:scale-95 flot px-2 py-1 md:px-4 md:py-2 bg-black text-white text-sm font-medium rounded-lg hover:bg-zinc-700 transition-all duration-300">
                                 Use Topic
                             </button>
                         </div>
@@ -41,7 +41,7 @@
                         <!-- Header -->
                         <div class="flex justify-between items-start">
                             <h3 class="text-lg font-semibold text-gray-900 flot">Going Viral with AI</h3>
-                            <button class="active:scale-95 flot px-4 py-2 bg-black text-white text-sm font-medium rounded-lg hover:bg-zinc-700 transition-all duration-300">
+                            <button class="active:scale-95 flot px-2 py-1 md:px-4 md:py-2 bg-black text-white text-sm font-medium rounded-lg hover:bg-zinc-700 transition-all duration-300">
                                 Use Topic
                             </button>
                         </div>
@@ -65,7 +65,7 @@
                         <!-- Header -->
                         <div class="flex justify-between items-start">
                             <h3 class="text-lg font-semibold text-gray-900 flot">Going Viral with AI</h3>
-                            <button class="active:scale-95 flot px-4 py-2 bg-black text-white text-sm font-medium rounded-lg hover:bg-zinc-700 transition-all duration-300">
+                            <button class="active:scale-95 flot px-2 py-1 md:px-4 md:py-2 bg-black text-white text-sm font-medium rounded-lg hover:bg-zinc-700 transition-all duration-300">
                                 Use Topic
                             </button>
                         </div>

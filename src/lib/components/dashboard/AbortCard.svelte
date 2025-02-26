@@ -1,5 +1,5 @@
 <script>
-    let { content} = $props();
+    let { content, time_ago } = $props();
     let copied = $state(false);
     let expanded = $state(false); // New state for expand/collapse
     function pickRandom() {
@@ -49,7 +49,7 @@
 </script>
 
 <div
-    class="w-full bg-black rounded-lg shadow-md border border-gray-800"
+    class="w-full bg-black rounded-2xl shadow-md"
 >
     <!-- Header -->
     <div class="p-4">
@@ -70,7 +70,13 @@
                     <h3 class="font-semibold text-gray-200">Metag AI</h3>
                     <p class="text-sm text-gray-400">Made with Love ❤️</p>
                     <div class="flex items-center gap-1 text-sm text-gray-500">
-                        <span>Now</span>
+                        <span>
+                            {#if time_ago}
+                                {time_ago}
+                            {:else}
+                                Now
+                            {/if}
+                        </span>
                         <span>•</span>
                         <span>🌐</span>
                     </div>
@@ -188,8 +194,8 @@
 
     .truncate-lines {
         display: -webkit-box;
-        -webkit-line-clamp: 4;
-        line-clamp: 4;
+        -webkit-line-clamp: 3;
+        line-clamp: 3;
         -webkit-box-orient: vertical;
         overflow: hidden;
     }

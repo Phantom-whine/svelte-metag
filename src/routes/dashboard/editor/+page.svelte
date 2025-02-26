@@ -17,18 +17,34 @@
     let original = $state($tempStore.tempText);
     let loading = $state(false);
     let ai_prompt = $state();
+
     const API_URL = import.meta.env.VITE_DJANGO_API_URL;
 
     const postId = $page.url.searchParams.get("post_id");
 
+    function removeTags(inputText) {
+        // Remove all <br> and <p> tags (including closing tags)
+        const cleanedText = inputText.replace(/<\/?\w+\s*\/?>/gi, "");
+        let newtxt = cleanedText.replace(/<!---->/g, "");
+        newtxt = newtxt.replace(/&nbsp;/g, "");
+        newtxt = newtxt.replace(/<!--45h-->/g, "");
+        return newtxt;
+    }
+
+    let opened = !!$tempStore.tempTitle;
     $effect(() => {
         profile;
+        if (!opened) {
+            title = removeTags(value).split(" ").slice(0, 5).join(" ");
+        }
     });
 
     let characterCount = $state(0);
     let isOpen = $state(false);
     let isActionsOpen = $state(false);
     let isAIPromptOpen = $state(false);
+    let title = $state($tempStore.tempTitle);
+    let time_ago = $state("");
 
     let editorArea;
     let value = $state($tempStore.tempText);
@@ -38,6 +54,13 @@
     onMount(async () => {
         count = value.length;
         profile = Cookies.get("profile");
+        title = $tempStore.tempTitle;
+        if (!!postId == false) {
+            title = "";
+            value = "";
+            original = "";
+            editorArea.innerHTML = "";
+        }
         if (postId && !value) {
             try {
                 const res = await axios.get(`${API_URL}/api/posts/${postId}`, {
@@ -46,6 +69,8 @@
                     },
                 });
                 value = res.data.content;
+                title = res.data.title;
+                time_ago = res.data.time_ago;
                 editorArea.innerHTML = res.data.content;
                 triggerToast("success", "Content Loaded");
             } catch (error) {
@@ -81,27 +106,10 @@
 
     const API_ENDPOINT = (id) => `${API_URL}/api/posts/edit/${id}/`;
 
-    async function saveEdits(id, content) {
-        try {
-            await axios.post(
-                API_ENDPOINT(id),
-                { content },
-                {
-                    headers: {
-                        Authorization: `Bearer ${Cookies.get("access")}`,
-                    },
-                },
-            );
-            console.log("Edit saved successfully");
-        } catch (error) {
-            console.error("Failed to save edit:", error.message);
-            // Consider re-throwing or handling error as needed
-        }
-    }
-
     onDestroy(async () => {
         tempStore.delTemp();
         if (!postId) {
+            alert("called");
             try {
                 const API_URL = import.meta.env.VITE_DJANGO_API_URL;
                 const response = await axios.post(
@@ -115,16 +123,26 @@
                         },
                     },
                 );
-                console.log("post saved");
             } catch (error) {
                 triggerToast("error", error);
             }
         } else {
-            if (browser) {
-                await saveEdits(
-                    postId,
-                    editorArea.innerHTML.replace(/<!---->/g, ""),
+            alert("saved");
+            try {
+                const API_URL = import.meta.env.VITE_DJANGO_API_URL;
+                const response = await axios.post(
+                    `${API_URL}/api/posts/edit/${postId}/`,
+                    {
+                        content: editorArea.innerHTML.replace(/<!---->/g, ""),
+                    },
+                    {
+                        headers: {
+                            Authorization: `Bearer ${Cookies.get("access")}`,
+                        },
+                    },
                 );
+            } catch (error) {
+                triggerToast("error", error);
             }
         }
     });
@@ -213,8 +231,10 @@
             class="flex items-center justify-between rounded-xl bg-[#262629] pr-2"
         >
             <div class="flex items-center gap-3 m-2">
-                <img src={profile} alt="Profile" class="rounded-full w-9 h-9" />
-                <span class="font-medium text-white flot">Phantom</span>
+                <img src="/in.png" alt="Profile" class="rounded-full w-9 h-9" />
+                <span class="font-medium text-white flot">
+                    {title}
+                </span>
             </div>
             <div class="flex items-center gap-2">
                 <div class="relative flex gap-2">
@@ -262,11 +282,6 @@
                                     class="flot block w-full px-2 py-1 text-left hover:bg-gray-300 rounded-md"
                                     >Revert to original</button
                                 >
-                                <div
-                                    class="flot block w-full px-2 py-1 text-left hover:bg-gray-300 rounded-md"
-                                >
-                                    Character count: <span>{count}</span>
-                                </div>
                             </div>
                         </div>
                     {/if}
@@ -527,6 +542,6 @@
         </div>
     </div>
     <div>
-        <AbortCard content={value} />
+        <AbortCard content={value} {time_ago} />
     </div>
 </div>

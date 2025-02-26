@@ -57,7 +57,7 @@
 
     {#if isOpen}
         <div
-            class="absolute right-0 mt-2 w-48 bg-zinc-800 rounded-lg shadow-lg z-50"
+            class="absolute right-0 mt-2 w-48 bg-zinc-900 rounded-lg shadow-lg z-50"
         >
             <div class="p-2 space-y-2">
                 <button

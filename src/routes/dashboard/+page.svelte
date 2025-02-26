@@ -13,6 +13,9 @@
     import { tempStore } from "$lib/editor.js";
     import { get } from "svelte/store";
 
+    let { data } = $props();
+    console.log(data.user)
+
     function updateQueryParam(key, value) {
         // Get the current query parameters or create an empty one
         const newParams = new URLSearchParams($page.url.search || "");
@@ -63,6 +66,9 @@
     $effect(fetchData);
 
     onMount(fetchData)
+    onMount(()=>{
+        Cookies.set('profile', data.user.profile)
+    })
 
     const del_post = async (id) => {
     try {
@@ -82,8 +88,6 @@
     }
   };
 
-    let { data } = $props();
-    console.log(data)
     let open = $state(false);
     let sortOption = $state("Most Recent");
     let openModal = $state(false);
@@ -103,7 +107,7 @@
 <main
     class="container mx-auto px-4 py-16 max-w-full lg:max-w-6xl relative top-[40px]"
 >
-    <h1 class="flot-b text-4xl md:text-5xl lg:text-6xl font-bold mb-16 text-[#ccfc7e]">
+    <h1 class="flot-b text-4xl md:text-5xl lg:text-6xl font-bold mb-16 bg-gradient-to-r from-[#ccfc7e] to-green-300 bg-clip-text text-transparent">
         Welcome {data.user.fullname}
     </h1>
     <div class="space-y-6 sm:space-y-8">
@@ -176,6 +180,7 @@
                     body={post.content} 
                     date={post.time_ago} 
                     id={post.id}
+                    edited={post.edited}
                     onDelete={(id)=>{
                         del_post(id);
                     }}

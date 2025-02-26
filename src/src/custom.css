@@ -23,12 +23,12 @@ body{
     background-color: #121212;
 }
 ::-webkit-scrollbar{
-    background-color: #121212;
+    background-color: black;
     width: 10px;
 }
 ::-webkit-scrollbar-thumb{
     background-color: white;
-    border-radius: 10px;
+    border-radius: 2px;
 }
 *{
     scroll-behavior: smooth;

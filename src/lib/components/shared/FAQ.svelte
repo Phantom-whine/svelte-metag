@@ -15,7 +15,7 @@
             icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8.228 9c.549-1.165 2.03-2 3.772-2 2.21 0 4 1.343 4 3 0 1.4-1.278 2.575-3.006 2.907-.542.104-.994.54-.994 1.093m0 3h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>`
         },
         {
-            question: 'How do I track the performance of my SEO campaigns?',
+            question: 'Is Metag Free',
             answer: 'Track your campaigns through our comprehensive analytics dashboard with real-time metrics and detailed reports.',
             icon: `<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"/>`
         }
@@ -29,7 +29,7 @@
   }
 </script>
 <FeatureHead id='features' title='FAQ' description='Potential Questions Answered'/>
-<div class="max-w-2xl mx-auto mb-[200px]">
+<div class="max-w-[95%] md:max-w-2xl mx-auto mb-[200px] flot">
     <!-- FAQ Items -->
     <div class="space-y-4">
         {#each faqs as faq (faq.question)}
@@ -83,7 +83,7 @@
         {#if faq.open}
           <div
             transition:fly={{ y: -8, duration: 200 }}
-            class="px-5 pb-5 pt-2 text-gray-300 group-hover:text-white/90 prose prose-invert max-w-none"
+            class="rounded-b-lg px-5 pb-5 pt-2 text-gray-300 group-hover:text-white/90 prose prose-invert max-w-none bg-zinc-800"
           >
             {faq.answer}
           </div>
