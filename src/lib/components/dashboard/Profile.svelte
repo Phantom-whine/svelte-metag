@@ -3,6 +3,7 @@
     import { goto } from "$app/navigation";
     import Cookies from "js-cookie";
     import { onMount } from "svelte";
+    import {clickOutside} from "$lib/handler";
 
     const logout = () => {
         clearTokens();
@@ -57,12 +58,13 @@
 
     {#if isOpen}
         <div
+            use:clickOutside={()=>isOpen = false}
             class="absolute right-0 mt-2 w-48 bg-zinc-900 rounded-lg shadow-lg z-50"
         >
             <div class="p-2 space-y-2">
-                <button
+                <a href="/dashboard/profile">
+                    <button
                     class="w-full flex items-center space-x-3 px-3 py-2 text-sm text-gray-300 hover:bg-zinc-700 rounded-md transition-colors"
-                    onclick={goto("/dashboard/profile")}
                 >
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
@@ -80,6 +82,7 @@
                     </svg>
                     <span>Profile</span>
                 </button>
+                </a>
                 <button
                     class="w-full flex items-center space-x-3 px-3 py-2 text-sm text-gray-300 hover:text-white hover:bg-red-400 rounded-md transition-colors"
                     onclick={() => logout()}

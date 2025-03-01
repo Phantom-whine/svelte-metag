@@ -85,7 +85,7 @@
             </div>
         
             <div class="mt-6 pt-6 border-t">
-                <div class="flex items-center justify-between text-sm text-gray-500">
+                <div class="flot flex items-center justify-between text-sm text-gray-500">
                     <div class="flex items-center gap-2">
                         <div class="w-2 h-2 rounded-full bg-green-500"></div>
                         <span>Latest generated posts</span>

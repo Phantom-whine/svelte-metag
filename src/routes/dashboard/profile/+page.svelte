@@ -3,13 +3,17 @@
   import Cookies from "js-cookie";
   import { clearTokens } from "$lib/auth";
   import Navbar from "$lib/components/dashboard/Navbar.svelte";
+  import axios from "axios";
+  import { load } from "../+layout.server.js";
 
   let { data } = $props();
-  
+  let loading = $state(false);
+  let showConfirm = $state(false);
+
   const logout = () => {
-        clearTokens();
-        goto("/");
-    };
+    clearTokens();
+    goto("/");
+  };
 
   const plans = [
     {
@@ -42,9 +46,30 @@
   $effect(() => {
     profile_url;
   });
+
+  async function del() {
+    loading = true;
+    try {
+      const response = await axios.delete(
+        `${import.meta.env.VITE_DJANGO_API_URL}/api/auth/delete-account/`,
+        {
+          headers: {
+            Authorization: `Bearer ${Cookies.get("access")}`,
+          },
+        },
+      );
+      logout();
+    } catch (error) {
+      loading = false;
+    }
+  }
+  function delAccount() {
+    showConfirm = !showConfirm;
+  }
 </script>
+
 <svelte:head>
-    <title>Metag AI - Profile</title>
+  <title>Metag AI - Profile</title>
 </svelte:head>
 
 <Navbar />
@@ -55,7 +80,7 @@
 
     <!-- Back Button -->
     <!-- svelte-ignore a11y_consider_explicit_label -->
-    <a href="/dashboard" data-sveltekit-prefetch>
+    <a href="/dashboard">
       <button
         class="p-2 rounded-lg bg-zinc-800 hover:bg-zinc-700 transition-colors text-white"
       >
@@ -167,8 +192,7 @@
                 <div
                   class="h-full bg-[#ccfc7e] transition-all duration-500 ease-out rounded-full"
                   style="width: 75%"
-                >
-                </div>
+                ></div>
               </div>
             </div>
 
@@ -298,37 +322,150 @@
     </div>
 
     <!-- Footer -->
-    <div class="p-6 mt-6">
-      <button
-        onclick={logout}
-        class="w-full flex items-center justify-center gap-2 px-6 py-3.5 font-medium rounded-lg transition-all
-         bg-red-500/90 hover:bg-red-500/80 active:scale-[0.98]
-         focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400/50
-         group shadow-sm shadow-red-500/20 hover:shadow-red-500/30"
-      >
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          width="20"
-          height="20"
-          viewBox="0 0 24 24"
-          fill="none"
-          stroke="currentColor"
-          stroke-width="1.8"
-          stroke-linecap="round"
-          stroke-linejoin="round"
-          class="h-[18px] w-[18px] translate-x-[0.5px] group-hover:translate-x-0 transition-transform"
+    <div class="p-6 mt-6 flex gap-2">
+      <div class="w-full">
+        <button
+          onclick={logout}
+          class="w-full flex items-center justify-center gap-2 px-6 py-3.5 font-medium rounded-lg transition-all
+       bg-red-500/90 hover:bg-red-500/80 active:scale-[0.98]
+       focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-red-400/50
+       group shadow-sm shadow-red-500/20 hover:shadow-red-500/30"
         >
-          <path
-            d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"
-          />
-        </svg>
-        <span class="text-red-50 tracking-wide relative">
-          Logout
-          <span
-            class="absolute bottom-0 left-0 w-full h-px bg-red-300/50 scale-x-0 group-hover:scale-x-100 transition-transform origin-left"
-          ></span>
-        </span>
-      </button>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="20"
+            height="20"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="currentColor"
+            stroke-width="1.8"
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            class="h-[18px] w-[18px] translate-x-[0.5px] group-hover:translate-x-0 transition-transform"
+          >
+            <path
+              d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4M16 17l5-5-5-5M21 12H9"
+            />
+          </svg>
+          <span class="text-red-50 tracking-wide relative">
+            Logout
+            <span
+              class="absolute bottom-0 left-0 w-full h-px bg-red-300/50 scale-x-0 group-hover:scale-x-100 transition-transform origin-left"
+            ></span>
+          </span>
+        </button>
+      </div>
+      <div class="group relative w-full">
+        <div class="relative">
+          <button
+            onclick={delAccount}
+            disabled={loading}
+            class="w-full flex items-center justify-center gap-2 px-6 py-3.5 font-medium rounded-lg transition-all
+                   bg-zinc-800 hover:bg-zinc-700/80 active:scale-[0.98]
+                   focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-zinc-400/50
+                   shadow-sm shadow-zinc-500/20 hover:shadow-zinc-500/30
+                   {loading ? 'opacity-75 cursor-not-allowed' : ''}"
+          >
+            {#if !loading}
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                width="20"
+                height="20"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="currentColor"
+                stroke-width="1.8"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="h-[18px] w-[18px] translate-x-[0.5px] group-hover:translate-x-0 transition-transform"
+              >
+                <path d="M3 6h18" />
+                <path d="M8 6V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2" />
+                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6" />
+                <path d="M10 11v6" />
+                <path d="M14 11v6" />
+              </svg>
+              <span class="tracking-wide relative"> Delete Account </span>
+            {:else}
+              <div class="py-2">
+                <span class="loader"></span>
+              </div>
+            {/if}
+          </button>
+        
+          {#if showConfirm}
+            <div 
+              class="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 p-2 bg-zinc-900 rounded-lg 
+                     shadow-lg border border-zinc-800 z-10 after:content-[''] after:absolute after:bottom-[-5px] after:left-1/2 after:-translate-x-1/2 after:w-0 after:h-0 after:border-l-[5px] after:border-l-transparent after:border-r-[5px] after:border-r-transparent after:border-t-[5px] after:border-t-gray-800"
+            >
+              <div class="text-sm text-zinc-300 mb-2">Are you sure?</div>
+              <div class="flex gap-2">
+                <button
+                  onclick={del}
+                  class="px-3 py-1 bg-red-600 hover:bg-red-700 rounded text-white text-sm
+                         transition-colors"
+                >
+                  Yes
+                </button>
+                <button
+                  onclick={delAccount}
+                  class="px-3 py-1 bg-zinc-700 hover:bg-zinc-600 rounded text-white text-sm
+                         transition-colors"
+                >
+                  No
+                </button>
+              </div>
+            </div>
+          {/if}
+        </div>
+        <!-- <div
+          class="flot-sm text-sm absolute bottom-full left-1/2 transform -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 pointer-events-none group-hover:pointer-events-auto transition-opacity duration-200 bg-gray-800 text-white px-2 py-1 rounded shadow-lg after:content-[''] after:absolute after:bottom-[-5px] after:left-1/2 after:-translate-x-1/2 after:w-0 after:h-0 after:border-l-[5px] after:border-l-transparent after:border-r-[5px] after:border-r-transparent after:border-t-[5px] after:border-t-gray-800"
+        >
+          Delete account permanently
+        </div> -->
+      </div>
     </div>
   </div>
 </div>
+
+<style>
+  .loader {
+  width: 20px;
+  height: 10px;
+  display: block;
+  margin: auto;
+  position: relative;
+  border-radius: 10px;
+  color: #FFF;
+  background: currentColor;
+  box-sizing: border-box;
+  animation: animloader 0.6s 0.3s ease infinite alternate;
+}
+.loader::after,
+.loader::before {
+  content: '';  
+  box-sizing: border-box;
+  width: 20px;
+  height: 12px;
+  background: currentColor;
+  position: absolute;
+  border-radius: 4px;
+  top: 0;
+  right: 110%;
+  animation: animloader  0.6s ease infinite alternate;
+}
+.loader::after {
+  left: 110%;
+  right: auto;
+  animation-delay: 0.6s;
+}
+
+@keyframes animloader {
+  0% {
+    width: 20px;
+  }
+  100% {
+    width: 48px;
+  }
+}
+</style>

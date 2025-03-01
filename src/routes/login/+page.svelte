@@ -1,6 +1,7 @@
 <script>
     import Google from "$lib/components/auth/Google.svelte";
 </script>
+
 <svelte:head>
     <title>Start Wining Today - Metag</title>
 </svelte:head>

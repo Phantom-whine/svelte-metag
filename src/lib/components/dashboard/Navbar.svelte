@@ -2,6 +2,7 @@
     import { onMount } from "svelte";
     import Profile from "./Profile.svelte";
     import { browser } from "$app/environment";
+    import { clickOutside } from "$lib/handler";
 
     let { username } = $props();
     console.log(username);
@@ -24,74 +25,219 @@
         const components = {
             openings: [
                 [
-                    "🔥",
-                    "What do you think? Drop your thoughts in the comments!",
+                    "",
+                    "I'd appreciate your insights on this topic. Please share your thoughts in the comments.",
+                    "",
                 ],
-                ["🤔", "Curious to hear your take! Drop a comment!"],
-                ["🔥", "Do you feel the same way? Let’s talk in the comments!"],
-                ["🧐", "What do you think? Let’s chat in the comments!"],
-                ["💡", "What would you add to this? Join the conversation!"],
-                ["🌟", "How would you approach this? Share below!"],
-                ["🎯", "Do you agree? Let’s discuss!"],
-                ["👀", "This one’s interesting! Let’s talk in the comments!"],
-                ["🔥", "Your thoughts matter! Drop a comment!"],
-                ["📝", "What’s your perspective on this? Let’s discuss!"],
-                ["💬", "Let’s get a conversation going! What do you think?"],
-                ["⚡", "Let’s debate this! Drop your thoughts!"],
-                ["🤯", "Does this surprise you? Tell us why!"],
-                ["💭", "Share your thoughts below!"],
-                ["💡", "What’s your take? I’d love to hear it!"],
-                ["📢", "Chime in! What do you think about this?"],
-                ["🚀", "Let’s spark a conversation! What’s your view?"],
-                ["🔍", "Any insights on this? Let’s chat!"],
-                ["🎙️", "Speak up! What’s your opinion?"],
-                ["🧠", "What does your gut tell you? Let’s discuss!"],
+                [
+                    "",
+                    "I'm curious to hear your perspective. Please feel free to comment below.",
+                    "",
+                ],
+                [
+                    "",
+                    "Do you share this view? Let’s discuss it in the comments.",
+                    "",
+                ],
+                [
+                    "",
+                    "This is an interesting point. Let’s explore it further in the comments.",
+                    "",
+                ],
+                [
+                    "",
+                    "What additional insights do you have? Please join the conversation.",
+                    "",
+                ],
+                [
+                    "",
+                    "How would you approach this situation? Please share your thoughts below.",
+                    "",
+                ],
+                [
+                    "",
+                    "Do you agree with this perspective? Let’s discuss in the comments.",
+                    "",
+                ],
+                [
+                    "",
+                    "This is an interesting point. Let’s discuss it in the comments.",
+                    "",
+                ],
+                [
+                    "",
+                    "Your insights are valuable. Please share your thoughts in the comments.",
+                    "",
+                ],
+                [
+                    "",
+                    "What’s your perspective on this topic? Let’s discuss in the comments.",
+                    "",
+                ],
+                [
+                    "",
+                    "Let’s start a conversation. What are your thoughts on this?",
+                    "",
+                ],
+                [
+                    "",
+                    "Let’s have a constructive debate. Please share your thoughts.",
+                    "",
+                ],
+                [
+                    "",
+                    "Were you surprised by this? Please share your reasons in the comments.",
+                    "",
+                ],
+                ["", "Please share your thoughts in the comments below.", ""],
+                [
+                    "",
+                    "What’s your perspective? I’d appreciate your insights.",
+                    "",
+                ],
+                ["", "Please chime in with your thoughts on this topic.", ""],
+                [
+                    "",
+                    "Let’s spark a conversation. What’s your view on this?",
+                    "",
+                ],
+                [
+                    "",
+                    "Do you have any insights on this? Let’s discuss in the comments.",
+                    "",
+                ],
+                [
+                    "",
+                    "Please speak up and share your opinion in the comments.",
+                    "",
+                ],
+                [
+                    "",
+                    "What’s your intuition on this? Let’s discuss in the comments.",
+                    "",
+                ],
             ],
             likes: [
-                ["👍", "Like if you agree!", "❤️"],
-                ["👍", "Agree? Hit like!", "❤️"],
-                ["👍", "Like if you vibe with this!", "❤️"],
-                ["👍", "Like if this resonates!", "❤️"],
-                ["🔥", "Support this idea? Hit like!", "💖"],
-                ["👏", "Love this? Show some appreciation!", "✨"],
-                ["❤️", "Hit like if this made sense to you!", "👍"],
-                ["👌", "Give this a thumbs-up if you relate!", "🔥"],
-                ["✨", "Enjoyed this? Like and let us know!", "👏"],
-                ["💡", "Does this make sense? Like to support!", "🔔"],
-                ["⚡", "If this sparked something in you, hit like!", "👊"],
-                ["🚀", "Let’s see those likes if you found value!", "🔥"],
-                ["🎯", "This hit home? Show some love!", "🤩"],
-                ["🔍", "Agree? Let’s see those likes!", "🧐"],
-                ["🙌", "If this resonated, hit that like button!", "🔥"],
+                [
+                    "",
+                    "If you agree with this perspective, please show your support with a like.",
+                    "",
+                ],
+                ["", "If you agree, please hit the like button.", ""],
+                ["", "Like if this resonates with you.", ""],
+                ["", "If this resonates with you, please like the post.", ""],
+                ["", "If you support this idea, please hit like.", ""],
+                [
+                    "",
+                    "If you appreciate this content, please show your support with a like.",
+                    "",
+                ],
+                [
+                    "",
+                    "If this made sense to you, please hit the like button.",
+                    "",
+                ],
+                [
+                    "",
+                    "If you find this relatable, please give it a thumbs-up.",
+                    "",
+                ],
+                [
+                    "",
+                    "If you enjoyed this post, please like it and let us know in the comments.",
+                    "",
+                ],
+                [
+                    "",
+                    "If this makes sense to you, please like the post to show your support.",
+                    "",
+                ],
+                ["", "If this inspired you, please hit the like button.", ""],
+                [
+                    "",
+                    "If you found value in this post, please show your appreciation with a like.",
+                    "",
+                ],
+                ["", "If this resonated with you, please like the post.", ""],
+                ["", "If you agree, please let us know with a like.", ""],
+                [
+                    "",
+                    "If this resonated with you, please hit the like button.",
+                    "",
+                ],
             ],
             shares: [
-                ["🚀", "Share if you found this helpful!", "🚀"],
-                ["🚀", "Found this useful? Share it!", "🚀"],
-                ["🚀", "Share the knowledge!", "🚀"],
-                ["🚀", "Share if you found it valuable!", "🚀"],
-                ["🔄", "Spread the word! Share this with others!", "📣"],
-                ["📢", "If this was useful, don’t keep it to yourself!", "🚀"],
-                ["💡", "Share this insight with your network!", "🔁"],
-                ["🔥", "Help others by sharing this!", "✨"],
-                ["🗣️", "Know someone who needs this? Share now!", "💡"],
-                ["📌", "Save this for later and share with others!", "🎯"],
-                ["🤝", "Let’s help more people! Share this!", "🚀"],
-                ["🎤", "If this spoke to you, share it!", "🔊"],
-                ["⚡", "Let’s get more eyes on this—share away!", "✨"],
-                ["🌟", "A quick share could make someone’s day!", "🤩"],
-                ["📨", "Pass this along to someone who’d love it!", "❤️"],
-            ],
-            commentSymbols: [
-                "💬👇",
-                "💬💡",
-                "💬✨",
-                "💬🚀",
-                "💬🔥",
-                "💬🎯",
-                "💬🙌",
-                "💬💭",
-                "💬⚡",
-                "💬🗣️",
+                [
+                    "🚀",
+                    "If you found this post valuable, please consider sharing it with your network.",
+                    "🚀",
+                ],
+                [
+                    "🚀",
+                    "If you found this useful, please share it with your connections.",
+                    "🚀",
+                ],
+                [
+                    "💡",
+                    "Please share this knowledge with your professional network.",
+                    "💡",
+                ],
+                [
+                    "🚀",
+                    "If you found this insightful, please share it with others.",
+                    "🚀",
+                ],
+                [
+                    "♻️",
+                    "If this resonated with you, consider reposting it to help others.",
+                    "♻️",
+                ],
+                [
+                    "🔄",
+                    "Help spread the word by sharing this post with your network.",
+                    "🔄",
+                ],
+                [
+                    "📢",
+                    "If this was useful, please consider sharing it with your connections.",
+                    "📢",
+                ],
+                [
+                    "💡",
+                    "Please share this insight with your professional network.",
+                    "💡",
+                ],
+                [
+                    "🤝",
+                    "Help others by sharing this post with your connections.",
+                    "🤝",
+                ],
+                [
+                    "♻️",
+                    "Let's expand this conversation. Please repost this to your connections.",
+                    "♻️",
+                ],
+                [
+                    "🗣️",
+                    "If you know someone who would benefit from this, please share it with them.",
+                    "🗣️",
+                ],
+                [
+                    "📌",
+                    "Consider saving this for later reference and sharing it with your network.",
+                    "📌",
+                ],
+                ["🤝", "Let’s help more people by sharing this post.", "🤝"],
+                [
+                    "🎤",
+                    "If this resonated with you, please share it with your network.",
+                    "🎤",
+                ],
+                [
+                    "♻️",
+                    "Found this insightful? Please repost it to continue the discussion.",
+                    "♻️",
+                ],
             ],
         };
 
@@ -99,13 +245,12 @@
         const [oEmoji, oText] = rand(components.openings);
         const [lEmoji, lText, lEnd] = rand(components.likes);
         const [sEmoji, sText, sEnd] = rand(components.shares);
-        const commentSymbol = rand(components.commentSymbols);
 
-        ctaText = `${oEmoji} ${oText} ${commentSymbol}\n${lEmoji} ${lText} ${lEnd}\n${sEmoji} ${sText} ${sEnd}`;
+        ctaText = `${oEmoji} ${oText} \n${sEmoji} ${sText} ${sEnd}`;
     }
 </script>
 
-<header class="sticky top-0 z-50 bg-[#121212]">
+<header class="sticky top-0 z-50 bg-[#0e0e0e]">
     <div class="container mx-auto px-4 h-20 flex items-center justify-between">
         <div class="flex items-center gap-3">
             <img src="/logo.png" alt="" class="w-9 h-9" />
@@ -149,6 +294,7 @@
                     class="fixed inset-0 bg-black/50 flex items-center justify-center p-2 backdrop-blur-sm z-[999]"
                 >
                     <div
+                        use:clickOutside={() => (showMenu = !showMenu)}
                         class="bg-[#121212] rounded-xl p-4 w-full max-w-md space-y-4 shadow-xl shadow-black/30"
                     >
                         <div class="space-y-2">

@@ -10,7 +10,7 @@
     <div class="bg-white cursor-default rounded-2xl p-8 shadow-lg hover:shadow-md transition-all duration-300 border border-gray-100 hover:scale-105">
         <div class="flex justify-between items-start mb-4">
             <div>
-                <h3 class="text-3xl font-extrabold text-gray-800 flot">Engage <br> Your Audience</h3>
+                <h3 class="text-3xl font-extrabold flot-b">Engage <br> Your Audience</h3>
             </div>
             <div class="w-12 h-12 rounded-full bg-gray-50 border border-gray-100 flex justify-center items-center text-4xl">
                 😁
@@ -23,20 +23,20 @@
     <div class="bg-white cursor-default rounded-2xl p-8 shadow-lg hover:shadow-md transition-all hover:scale-105 duration-300 border border-gray-100">
         <div class="flex justify-between items-start mb-4">
             <div>
-                <h3 class="text-3xl font-extrabold text-gray-800 flot">Save Hours <br>Every Week </h3>
+                <h3 class="text-3xl font-extrabold flot-b">Save Hours <br>Every Week </h3>
             </div>
             <div class="w-12 h-12 rounded-full bg-gray-50 border border-gray-100 flex justify-center items-center text-4xl">
                 👌
             </div>
         </div>
-        <p class="text-gray-600 leading-relaxed">No more overthinking. Generate & tweak posts in seconds.</p>
+        <p class="text-gray-700 leading-relaxed">No more overthinking. Generate & tweak posts in seconds.</p>
     </div>
 
     <!-- Card 3 -->
     <div class="bg-white cursor-default rounded-2xl p-8 shadow-lg hover:shadow-md transition-all hover:scale-105 duration-300 border border-gray-100">
         <div class="flex justify-between items-start mb-4">
             <div>
-                <h3 class="text-3xl font-extrabold text-gray-800 flot">Grow <br> Your Influence </h3>
+                <h3 class="text-3xl font-extrabold flot-b">Grow <br> Your Influence </h3>
             </div>
             <div class="w-12 h-12 rounded-full bg-gray-50 border border-gray-100 flex justify-center items-center text-4xl">
                 🥳

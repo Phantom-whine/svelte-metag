@@ -9,6 +9,7 @@
     import { page } from "$app/stores";
     import { derived } from "svelte/store";
     import { browser } from "$app/environment";
+    import {clickOutside} from "$lib/handler";
 
     let { data } = $props();
     let msg = $state();
@@ -109,7 +110,6 @@
     onDestroy(async () => {
         tempStore.delTemp();
         if (!postId) {
-            alert("called");
             try {
                 const API_URL = import.meta.env.VITE_DJANGO_API_URL;
                 const response = await axios.post(
@@ -127,7 +127,6 @@
                 triggerToast("error", error);
             }
         } else {
-            alert("saved");
             try {
                 const API_URL = import.meta.env.VITE_DJANGO_API_URL;
                 const response = await axios.post(
@@ -185,6 +184,50 @@
             }
         }
     }
+    export function plainPaste(node) {
+    function handlePaste(event) {
+        // Prevent the default paste behavior, which includes styles
+        event.preventDefault();
+
+        // Get the plain text from the clipboard
+        const text = event.clipboardData.getData('text/plain');
+
+        // Access the current selection in the contenteditable element
+        const selection = window.getSelection();
+
+        if (selection.rangeCount) {
+            // Remove any selected content
+            selection.deleteFromDocument();
+
+            // Get the current range where the cursor is
+            const range = selection.getRangeAt(0);
+
+            // Create a text node with the plain text
+            const textNode = document.createTextNode(text);
+
+            // Insert the text node at the cursor position
+            range.insertNode(textNode);
+
+            // Move the cursor to after the inserted text
+            range.setStartAfter(textNode);
+            range.setEndAfter(textNode);
+
+            // Update the selection with the new range
+            selection.removeAllRanges();
+            selection.addRange(range);
+        }
+    }
+
+    // Attach the paste event listener to the node
+    node.addEventListener('paste', handlePaste);
+
+    // Return a cleanup function to remove the listener when the element is destroyed
+    return {
+        destroy() {
+            node.removeEventListener('paste', handlePaste);
+        }
+    };
+}
 </script>
 
 {#if msg}
@@ -201,7 +244,7 @@
 
         <!-- Back Button -->
         <!-- svelte-ignore a11y_consider_explicit_label -->
-        <a href="/dashboard" data-sveltekit-prefetch>
+        <a href="/dashboard">
             <button
                 class="p-2 rounded-lg bg-zinc-800 hover:bg-zinc-700 transition-colors text-white"
             >
@@ -271,6 +314,7 @@
 
                     {#if isOpen}
                         <div
+                            use:clickOutside={()=>isOpen = false}
                             class="absolute right-0 mt-10 w-56 bg-white rounded-md shadow-lg"
                         >
                             <div class="m-1">
@@ -292,6 +336,7 @@
         <div class="p-4">
             <div
                 use:observeEditor
+                use:plainPaste
                 contenteditable
                 class="w-full min-h-[400px] resize-none border-0 focus:ring-0 focus:outline-none text-white"
             >
@@ -362,6 +407,7 @@
                 {/if}
                 {#if isActionsOpen}
                     <div
+                        use:clickOutside={()=>isActionsOpen = !isActionsOpen}
                         class="absolute right-0 bottom-full mb-2 w-48 bg-white rounded-md shadow-lg border"
                     >
                         <div class="m-1 flot">

@@ -30,6 +30,7 @@ export async function load({ fetch, cookies }) {
     } catch (error) {
       cookies.delete('access', { path: '/' });
       cookies.delete('refresh', { path: '/' });
+      cookies.delete('profile', {path: '/'});
       throw redirect(307, '/login');
     }
   }
@@ -64,6 +65,7 @@ export async function load({ fetch, cookies }) {
   } catch (error) {
       cookies.delete('access', { path: '/' });
       cookies.delete('refresh', { path: '/' });
+      cookies.delete('profile', {path: '/'});
       throw redirect(307, '/login');
   }
 }

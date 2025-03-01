@@ -29,7 +29,7 @@ export const clearTokens = () => {
   Cookies.remove('refresh', { path: '/' });
   Cookies.remove('profile', { path: '/' });
   stopTokenRefresh();
-  goto('/login');
+  goto('/');
 };
 
 // Enhanced API client
@@ -68,13 +68,18 @@ export const apiClient = async (endpoint, options = {}) => {
 };
 
 // Auth operations
-export const loginUser = async (access, refresh, profile) => {
+export const loginUser = async (access, refresh, profile, register) => {
   if(profile){
     Cookies.set('profile', profile)
   }
   setTokens(access, refresh);
   initializeAuth();
-  goto('/dashboard');
+  if(!register){
+    goto('/dashboard');
+  }else{
+    localStorage.setItem('boarded', 'false')
+    goto('/dashboard/onboarding')
+  }
 };
 
 export const verifyToken = async () => {

@@ -5,7 +5,54 @@
     import { tempStore } from "$lib/editor";
     import { goto } from "$app/navigation";
 
+    function plainPaste(node) {
+    function handlePaste(event) {
+        // Prevent the default paste behavior, which includes styles
+        event.preventDefault();
+
+        // Get the plain text from the clipboard
+        const text = event.clipboardData.getData('text/plain');
+
+        // Access the current selection in the contenteditable element
+        const selection = window.getSelection();
+
+        if (selection.rangeCount) {
+            // Remove any selected content
+            selection.deleteFromDocument();
+
+            // Get the current range where the cursor is
+            const range = selection.getRangeAt(0);
+
+            // Create a text node with the plain text
+            const textNode = document.createTextNode(text);
+
+            // Insert the text node at the cursor position
+            range.insertNode(textNode);
+
+            // Move the cursor to after the inserted text
+            range.setStartAfter(textNode);
+            range.setEndAfter(textNode);
+
+            // Update the selection with the new range
+            selection.removeAllRanges();
+            selection.addRange(range);
+        }
+    }
+
+    // Attach the paste event listener to the node
+    node.addEventListener('paste', handlePaste);
+
+    // Return a cleanup function to remove the listener when the element is destroyed
+    return {
+        destroy() {
+            node.removeEventListener('paste', handlePaste);
+        }
+    };
+}
+
     let { content, id, type, timeFrame, title } = $props();
+    content = content.replace(/\[/g, '');     // Remove all [
+    content = content.replace(/\]/g, '');     // Remove all ]
     let copied = $state(false);
     let expanded = $state(false); // New state for expand/collapse
     function pickRandom() {
@@ -110,7 +157,7 @@
                     clearInterval(intervalId); // Stop when done
                     isTyping = false; // Hide the cursor
                 }
-            }, 30); // 100ms delay per character
+            }, 10); // 100ms delay per character
 
             // Cleanup function to clear the interval
             return () => {
@@ -212,6 +259,7 @@
             class="{expanded ? '' : 'truncate-lines'} transition-all dib focus:border transition outline-none rounded-md border-[#ccfc7e] transition focus:border-2"
             contenteditable
             bind:this={content_edited}
+            use:plainPaste
         >
             {#if type}
                 {#if content}

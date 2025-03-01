@@ -106,14 +106,14 @@
                                 <svg class="w-4 h-4 text-green-500" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"></path>
                                 </svg>
-                                <span>800</span>
+                                <span>1.7k</span>
                             </div>
                             <div class="flex items-center gap-1">
                                 <!-- Message Circle icon -->
                                 <svg class="w-4 h-4" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
                                     <path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"></path>
                                 </svg>
-                                <span>60</span>
+                                <span>83</span>
                             </div>
                             <div class="flex items-center gap-1">
                                 <!-- Share icon -->
@@ -124,7 +124,7 @@
                                     <line x1="8.59" y1="13.51" x2="15.42" y2="17.49"></line>
                                     <line x1="15.41" y1="6.51" x2="8.59" y2="10.49"></line>
                                 </svg>
-                                <span>30</span>
+                                <span>35</span>
                             </div>
                         </div>
                         <span class="text-xs text-gray-500">Human Content</span>

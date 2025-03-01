@@ -2,6 +2,7 @@
     import Cookies from 'js-cookie';
     import axios from 'axios';
     import { getAccessToken } from '$lib/auth';
+    import {clickOutside} from "$lib/handler";
     
     let { openModal=$bindable(false), onUse } = $props();
     const API_URL = import.meta.env.VITE_DJANGO_API_URL;
@@ -64,7 +65,10 @@
     <div
         class="fixed inset-0 bg-black/70 backdrop-blur-sm flex items-center justify-center p-4 z-50"
     >
-        <div class="bg-zinc-900 text-white rounded-xl w-full max-w-md p-4">
+        <div class="bg-zinc-900 text-white rounded-xl w-full max-w-md p-4" use:clickOutside={()=>{
+            openModal = false
+            showDropdown = false
+        }}>
             <div class="space-y-4">
                 <!-- Header -->
                 <div class="flex justify-between items-center">
@@ -127,17 +131,8 @@
                     bind:value={textContent}
                     id="content"
                     placeholder="Enter your content or select a topic above..."
-                    class="w-full min-h-[120px] bg-zinc-800 border-zinc-700 rounded-lg p-3 text-sm text-white"
+                    class="w-full min-h-[120px] bg-zinc-800 border-zinc-700 rounded-lg p-3 text-sm text-white ouline-none focus:border-zinc-600 focus:border-3"
                 ></textarea>
-                <!-- <div class="suggested_section flex justify-between gap-2">
-                    {#each suggestions as suggested}
-                        <div class="flot text-sm text-center active:scale-95 transition w-full p-1 rounded-md bg-zinc-700" onclick={() => {
-                            textContent = suggested;
-                        }}>
-                            {suggested}
-                        </div>
-                    {/each}
-                </div> -->
 
                 <!-- Loading Button -->
                 <button

@@ -4,10 +4,12 @@
         const cleanedText = inputText.replace(/<\/?\w+\s*\/?>/gi, '');
         let newtxt = cleanedText.replace(/<!---->/g, '');
         newtxt = newtxt.replace(/&nbsp;/g, '');
+        newtxt = newtxt.replace(/\]/g, '');     // Remove all ]
+        newtxt = newtxt.replace(/\[/g, '');     // Remove all ]
         return newtxt;
     }
     let { title, body, date, id, onDelete, edited } = $props();
-    let body_cleaned = removeTags(body);
+    let body_cleaned = $state(removeTags(body));
     let title_cleaned = removeTags(title);
     let open = $state(false)
 </script>

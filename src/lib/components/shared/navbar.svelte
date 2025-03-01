@@ -1,5 +1,6 @@
 <script>
     import { cubicOut } from 'svelte/easing';
+    import {clickOutside} from "$lib/handler";
 
     let showMenu = $state(false);
     let isLoggedIn = $props()
@@ -66,6 +67,7 @@
                 <!-- Dropdown Menu -->
                 {#if showMenu}
                     <div
+                        use:clickOutside={()=>showMenu = !showMenu}
                         in:scaleFade={{ duration: 200 }}
                         out:scaleFade={{ duration: 150 }}
                         class="absolute right-0 top-full mt-2 w-64 origin-top-right rounded-[14px] bg-black backdrop-blur-lg border border-white/10 shadow-xl py-4"

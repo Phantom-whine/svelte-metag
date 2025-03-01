@@ -28,19 +28,19 @@
     }
   }
 </script>
-<FeatureHead id='features' title='FAQ' description='Potential Questions Answered'/>
+<FeatureHead id='faq' title='FAQ' description='Potential Questions Answered'/>
 <div class="max-w-[95%] md:max-w-2xl mx-auto mb-[200px] flot">
     <!-- FAQ Items -->
     <div class="space-y-4">
         {#each faqs as faq (faq.question)}
         <div 
-        class="rounded-lg bg-black/95 transition-all duration-300 hover:bg-zinc-900 group shadow-lg hover:shadow-xl"
+        class="rounded-lg bg-black/95 transition-all duration-300 group shadow-lg hover:shadow-xl"
         role="region"
         aria-labelledby="faq-question"
       >
         <button
           id="faq-question"
-          class="flex justify-between items-center w-full p-5 text-left focus:outline-none focus:ring-2 focus:ring-[#ccfc7e] focus:ring-offset-2 focus:ring-offset-black rounded-lg group-hover:text-white"
+          class="flex justify-between items-center w-full p-5 text-left focus:outline-none rounded-lg group-hover:text-white"
           onclick={() => faq.open = !faq.open}
           onkeydown={handleKeydown}
           aria-expanded={faq.open}

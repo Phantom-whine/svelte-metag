@@ -3,8 +3,8 @@
     let isLoggedIn = $props()
 </script>
 <main class="flex-1 relative top-8">
-    <section class="container flex flex-col items-center justify-center space-y-8 pt-32 text-center">
-        <h1 class="max-w-6xl text-white text-4xl tracking-tight md:text-6xl lg:text-7xl flot">
+    <section class="container flex flex-col items-center justify-center space-y-8 pt-32 text-center mx-auto">
+        <h1 class="w-fit text-white text-4xl tracking-tight md:text-6xl lg:text-7xl flot">
             Write the posts you need
             <span class="block text-muted-foreground">to grow on <span class="text-black bg-[#ccfc7e] rounded-md flot-b">LinkedIn.</span></span>
         </h1>

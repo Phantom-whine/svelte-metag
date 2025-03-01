@@ -20,11 +20,12 @@
     font-family: flot-sm;
 }
 body{
-    background-color: #121212;
+    background-color: #0e0e0e;
 }
 ::-webkit-scrollbar{
     background-color: black;
     width: 10px;
+    padding: 3px;
 }
 ::-webkit-scrollbar-thumb{
     background-color: white;

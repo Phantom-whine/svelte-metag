@@ -17,7 +17,7 @@
 
         <div class="w-full max-w-3xl mx-auto">
             <div class="bg-white rounded-3xl p-4 md:p-8 shadow-lg hover:shadow-xl transition-shadow duration-300">
-                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-6">
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-6 md:gap-4">
                     <!-- Source Content Column -->
                     <div class="space-y-4 slide-in" style="animation-delay: 0.1s;">
                         <h3 class="font-semibold text-sm text-gray-500 mb-4 flex items-center">
